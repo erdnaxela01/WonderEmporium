@@ -1,0 +1,9 @@
+CLASS
+LabelComponent
+
+RESPONSABILITIES
+Renders a font onto the screen as a ui element
+
+COLLABORATORS
+UIComponent
+Font

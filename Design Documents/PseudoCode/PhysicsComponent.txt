@@ -1,0 +1,137 @@
+START CLASS PhysicsComponent INHERITS from TransformComponent
+
+	START MEMBERS
+		object:btCollisionObject
+		myTransform:TransformComponent
+	END MEMBERS
+	
+	
+	START METHODS
+		/*
+		* Arguments: none
+		* Return: btCollisionObject
+		* Purpose: returns the body associated to the component
+		*/
+		START FUNCTION GetBody
+			RETURN the object member
+		END FUNCTION GetBody
+		
+		
+		/*
+		* Arguments: obj:btCollisionObject
+		* Return: none
+		* Purpose: sets the myMatrix and collision object
+		*/
+		START FUNCTION PhysicsComponent
+			SET the object member to be obj
+		END FUNCTION PhysicsComponent
+		
+		/*
+		* Arguments: type:ComponentType
+		* Return: Bool
+		* Purpose: returns true if the type is a PhysicsComponent
+		*/
+		START OVERRIDEN FUNCTION Match
+			RETURN true if type is EQUAL to PhysicsComponent
+		END OVERRIDEN FUNCTION Match
+		
+		/*
+		*Arguments:	pos:vec3
+		*Return: none
+		*Purpose: sets the position
+		*/
+		START OVERRIDEN FUNCTION SetPosition
+			CALL getWorldTransform on object member
+			CALL getOrigin on object member
+			CALL setX, setY, setZ and pass pos.x, pos.y, pos.z
+		END OVERRIDEN FUNCTION SetPosition
+		
+		/*
+		*Arguments:	none
+		*Return: vec3
+		*Purpose: gets the position
+		*/
+		START OVERRIDEN FUNCTION GetPosition
+			CALL getWorldTransform on object member
+			CALL getOrigin on objectMembet
+			RETURN origin
+		END OVERRIDEN FUNCTION GetPosition
+		
+		/*
+		*Arguments:	rotation:vec3
+		*Return: none
+		*Purpose: sets the rotation
+		*/
+		START OVERRIDEN FUNCTION SetRotation
+			CALL getWorldTransform on object member
+			CALL getBasis on return
+			CALL setEulerZYX on return and pass rotation.x, .y, .z
+		END OVERRIDEN FUNCTION SetRotation
+		
+		/*
+		*Arguments:	none
+		*Return: vec3
+		*Purpose: gets the rotation
+		*/
+		START OVERRIDEN FUNCTION GetRotation
+			CREATE vec3 called rot
+			CALL getWorldTransform on object member
+			CALL getBasis on return
+			CALL getEulerZYX and pass rot.x, rot.y,rot.z
+			RETURN rot
+		END OVERRIDEN FUNCTION GetRotation
+		
+		
+		/*
+		*Arguments:	none
+		*Return: mat4
+		*Purpose: rreturns the transform matrix
+		*/
+		START OVERRIDEN FUNCTION GetTransform
+			
+			CREATE vec3 rot and pos
+			CREATE a mat4 mat
+			CALL GetRotation and pass the return to rot
+			CALL GetPosition and pass the return to pos
+			CALL GetScale
+			CALL mat4 Transform and pass rot, pos and return of GetScale and mat
+			RETURN mat
+		END OVERRIDEN FUNCTION GetTransform
+		
+		/*
+		*Arguments:	none
+		*Return: mat4
+		*Purpose: return the inverse of the transform matrix
+		*/
+		START OVERRIDEN FUNCTION GetInverse
+			CREATE vec3 rot and pos
+			CREATE a mat4 mat
+			CALL GetRotation and pass the return to rot
+			CALL GetPosition and pass the return to pos
+			CALL GetScale
+			CALL mat4 Inverse and pass rot, pos and return of GetScale and mat
+			RETURN mat
+		END OVERRIDEN FUNCTION GetInverse
+		
+		
+		/*
+		*Arguments:	world:btDynamicsWorld
+		*Return: none
+		*Purpose: add an object to the world
+		*/
+		START FUNCTION AddToWorld
+			CALL AddCollisionObject on world and pass the object member
+		END FUNCTION AddToWorld
+		
+		/*
+		*Arguments:	world:btDynamicsWorld
+		*Return: none
+		*Purpose: remove an object to the world
+		*/
+		START FUNCTION RemoveFromWorld
+			CALL RemoveCollisionObject on world and pass the object member
+		END FUNCTION RemoveFromWorld
+	
+	END METHODS
+
+END CLASS PhysicsComponent

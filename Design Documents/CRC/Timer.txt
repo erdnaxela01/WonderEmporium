@@ -1,0 +1,8 @@
+CLASS
+Timer
+
+RESPONSABILITIES
+Keeps track of timed intervals
+Keeps track of the total time
+
+COLLABORATORS

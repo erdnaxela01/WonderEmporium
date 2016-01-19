@@ -1,0 +1,10 @@
+CLASS
+PhysicsComponent
+
+RESPONSABILITIES
+Holds a physics body
+Adds and removes the body from the world
+
+COLLABORATORS
+TransformComponent
+PhysicsBody

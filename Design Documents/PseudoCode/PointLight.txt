@@ -1,0 +1,67 @@
+START CLASS PointLight INHERITS from LightComponent
+
+	START METHODS
+		
+		radius:Float
+		myTransform:TransformComponent
+		
+	END METHODS
+	
+	
+	START MEMBERS
+		/*
+		* arguments: entity:Entity
+		* return: none
+		* purpose: set the shaders and the transform matrix
+		*/
+		START FUNCTION PointLight
+			SET the shader for the light
+			CALL HasType on entity and pass entity
+			IF it returned true
+				CALL GetComponent and pass TransformComponent
+				SET the myTransform member to the return
+			END IF
+		END FUNCTION PointLight
+		
+		
+		/*
+		* arguments: radius:Float
+		* return: none
+		* purpose: set the radius of the point light
+		*/
+		START FUNCTION SetRadius
+			SET the radius member to radius
+		END FUNCTION SetRadius
+		
+		/*
+		* arguments: none
+		* return: float
+		* purpose: return the radius of the point light
+		*/
+		START FUNCTION GetRadius
+			RETURN the radius member
+		END FUNCTION GetRadius
+		
+		/*
+		* arguments: type:ComponentType
+		* return: Bool
+		* purpose: returns true if the type matches PointLight
+		*/
+		START OVERRIDEN FUNCTION Match
+			RETURN true if type is EQUAL to PointLight
+		END OVERRIDEN FUNCTION Match
+		
+		/*
+		* arguments: renderer:DeferedRenderer
+		* return: none
+		* purpose: render the point light
+		*/
+		START OVERRIDEN FUNCTION Render
+			CALL UseProgram on the shader member
+			SET the position and radius uniforms
+			CALL RenderLight on the renderer and pass the shader meber
+		END OVERRIDEN FUNCTION Render
+	
+	END MEMBERS
+
+END CLASS PointLight

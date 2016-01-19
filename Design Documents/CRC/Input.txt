@@ -1,0 +1,9 @@
+CLASS
+Input
+
+RESPONSABILITIES
+Holds data associated to input
+
+COLLABORATORS
+InputSystem
+InputHandler

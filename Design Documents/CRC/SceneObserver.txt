@@ -1,0 +1,9 @@
+CLASS
+SceneObserver
+
+RESPONSABILITIES
+Gets notified of a new active scene
+
+COLLABORATORS
+SceneManager
+Scene

@@ -1,0 +1,627 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{08a5a065-742b-4c80-bf80-512a227d1e7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Tools">
+      <UniqueIdentifier>{3adbed12-73c6-467a-a8ab-4f822ef7e170}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Core">
+      <UniqueIdentifier>{ee349208-4e73-44d6-96a2-3ad60d5a2bab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\MyLibs">
+      <UniqueIdentifier>{7be74481-9f24-4779-94e5-ef3bcc104884}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\MyLibs\OpenGL">
+      <UniqueIdentifier>{3bbc5c2d-69ed-43c0-8d00-2b0fea00b0b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\MyLibs\Math">
+      <UniqueIdentifier>{ecc5c974-d67d-4230-aa87-a4995c78b13a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\MyLibs\OpenGL\LodePng">
+      <UniqueIdentifier>{85dec83d-8a1c-46a5-944c-885a6eba926e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\MyLibs\OpenGL\GL">
+      <UniqueIdentifier>{9db1b3c1-07c9-4c5d-a844-25961d173e11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Movement">
+      <UniqueIdentifier>{5b787f09-abcf-48ed-9740-fa1ac3d70271}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Rendering">
+      <UniqueIdentifier>{b658b5a7-45cd-47aa-9b23-530603d68813}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{c566b815-b4fd-49aa-9e74-743cc996aa64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Shaders">
+      <UniqueIdentifier>{29fc1228-8de0-4745-a5c8-8845c5364cf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Input">
+      <UniqueIdentifier>{2816732d-60c5-4bea-88f4-b41aeb4512b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Time">
+      <UniqueIdentifier>{fa828ce6-b446-4f9f-aa91-33c95974fecc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Scene">
+      <UniqueIdentifier>{af969607-6832-4273-aa02-dc60cfca2a39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{15fd7117-be03-4a73-9a65-d18b3add79cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Logic">
+      <UniqueIdentifier>{cda51514-2f0a-4c4c-af77-4bd53bfe50e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Collision">
+      <UniqueIdentifier>{0f44dffd-e5a3-4991-aac6-f9e131885b55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\MyLibs\Memory">
+      <UniqueIdentifier>{eb1ea5d6-6738-43a4-a022-3a23652d2d9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\MyLibs\Logging">
+      <UniqueIdentifier>{40303b14-72cd-4466-8043-c39592457470}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\stdafx.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Core\Component.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Core\Core.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Core\Entity.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Core\SystemCallback.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Core\SystemVarying.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\Helper.cpp">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\Mesh.cpp">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\ShaderProgram.cpp">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\Texture.cpp">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\Window.cpp">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\lodepng\lodepng.cpp">
+      <Filter>Source\MyLibs\OpenGL\LodePng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\GL\GLExtensions.cpp">
+      <Filter>Source\MyLibs\OpenGL\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Movement\TransformComponent.cpp">
+      <Filter>Source\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Rendering\RenderComponent.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Rendering\CameraComponent.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Rendering\RenderSystem.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Config.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Rendering\RenderState.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Rendering\SceneGraphComponent.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Rendering\Node.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Rendering\ParentNode.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\ModelParser.cpp">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\Material.cpp">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\Model.cpp">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\TexturePool.cpp">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\ShaderPool.cpp">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Input\InputSystem.cpp">
+      <Filter>Source\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Input\LLInputMap.cpp">
+      <Filter>Source\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Input\HLInputMap.cpp">
+      <Filter>Source\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Input\Input.cpp">
+      <Filter>Source\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Input\InputHandler.cpp">
+      <Filter>Source\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Movement\PhysicsSystem.cpp">
+      <Filter>Source\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Time\Timer.cpp">
+      <Filter>Source\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Movement\PhysicsComponent.cpp">
+      <Filter>Source\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Movement\RigidBodyComponent.cpp">
+      <Filter>Source\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Scene\SceneManagerSystem.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Scene\Scene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Scene\SceneObserver.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Game\Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\UniformBuffer.cpp">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\DeferedRenderer.cpp">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Rendering\ModelComponent.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Rendering\LightingSystem.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Rendering\LightComponent.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Rendering\DirectionalLight.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Rendering\FinalPassSystem.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Rendering\PointLight.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Logic\LogicSystem.cpp">
+      <Filter>Source\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Logic\LogicComponent.cpp">
+      <Filter>Source\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Collision\CollisionHandling.cpp">
+      <Filter>Source\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Collision\CollisionHandler.cpp">
+      <Filter>Source\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\Memory\MemoryTracker.cpp">
+      <Filter>Source\MyLibs\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Rendering\UISystem.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Rendering\UIComponent.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\Font.cpp">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Rendering\LabelComponent.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Rendering\ParticleEmitter.cpp">
+      <Filter>Source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\ParticleRenderer.cpp">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Game\Player.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Game\PlayerInputHandler.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Game\PlayerLogic.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Game\Platform.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Game\PlatformPiece.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\Logging\LightLogger.cpp">
+      <Filter>Source\MyLibs\Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Game\CameraLogic.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Game\Camera.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Game\EventBox.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Game\EventCollisionHandler.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Game\PlayerCollisionHandler.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Game\Enemy.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Game\EnemyPool.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\ModelPool.cpp">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Game\EnemyLogic.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Game\EnemyCollisionHandler.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Game\BeamPlatform.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Game\PlayerModel.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\stdafx.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Types.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Tools\ArrayList.h">
+      <Filter>Source\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Core\Component.h">
+      <Filter>Source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Core\ComponentPool.h">
+      <Filter>Source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Core\Core.h">
+      <Filter>Source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Core\Entity.h">
+      <Filter>Source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Core\SystemCallback.h">
+      <Filter>Source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Core\SystemVarying.h">
+      <Filter>Source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\Helper.h">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\Mesh.h">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\ShaderProgram.h">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\Texture.h">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\Window.h">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\lodepng\lodepng.h">
+      <Filter>Source\MyLibs\OpenGL\LodePng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\GL\glext.h">
+      <Filter>Source\MyLibs\OpenGL\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\GL\GLExtensions.h">
+      <Filter>Source\MyLibs\OpenGL\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\GL\wglext.h">
+      <Filter>Source\MyLibs\OpenGL\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\Math\mat4.h">
+      <Filter>Source\MyLibs\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\Math\vec2.h">
+      <Filter>Source\MyLibs\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\Math\Vec3.h">
+      <Filter>Source\MyLibs\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\Math\vec4.h">
+      <Filter>Source\MyLibs\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Movement\TransformComponent.h">
+      <Filter>Source\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Rendering\RenderComponent.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Rendering\CameraComponent.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Rendering\RenderSystem.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Config.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Rendering\RenderState.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Rendering\SceneGraphComponent.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Rendering\Node.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Rendering\ParentNode.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\Math\MatrixStack.h">
+      <Filter>Source\MyLibs\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\ModelParser.h">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\Material.h">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\Model.h">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\TexturePool.h">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\ShaderPool.h">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Input\InputSystem.h">
+      <Filter>Source\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Input\LLInputMap.h">
+      <Filter>Source\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Input\HLInputMap.h">
+      <Filter>Source\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Input\InputHandler.h">
+      <Filter>Source\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Input\Input.h">
+      <Filter>Source\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Movement\PhysicsSystem.h">
+      <Filter>Source\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Time\Timer.h">
+      <Filter>Source\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Movement\PhysicsComponent.h">
+      <Filter>Source\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Movement\RigidBodyComponent.h">
+      <Filter>Source\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Scene\SceneManagerSystem.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Scene\Scene.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Scene\SceneObserver.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Game\Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\UniformBuffer.h">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\DeferedRenderer.h">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Rendering\ModelComponent.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Rendering\LightingSystem.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Rendering\LightComponent.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Rendering\DirectionalLight.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Rendering\FinalPassSystem.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Rendering\PointLight.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Logic\LogicSystem.h">
+      <Filter>Source\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Logic\LogicComponent.h">
+      <Filter>Source\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Collision\CollisionHandling.h">
+      <Filter>Source\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Collision\CollisionHandler.h">
+      <Filter>Source\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\Memory\MemoryTracker.h">
+      <Filter>Source\MyLibs\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Rendering\UISytstem.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Rendering\UIComponent.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\Font.h">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Rendering\LabelComponent.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\ParticleRenderer.h">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Rendering\ParticleEmitter.h">
+      <Filter>Source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Game\CollisionTag.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Game\Player.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Game\PlayerInputHandler.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Game\PlayerLogic.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Game\Platform.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Game\PlatformPiece.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\Logging\LightLogger.h">
+      <Filter>Source\MyLibs\Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Game\CameraLogic.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Game\Camera.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Game\EventBox.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Game\EventCollisionHandler.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Game\PlayerCollisionHandler.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Game\Enemy.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Game\EnemyPool.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\ModelPool.h">
+      <Filter>Source\MyLibs\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Game\EnemyLogic.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Game\EnemyCollisionHandler.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Game\BeamPlatform.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Game\PlayerModel.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Assets\Shaders\Default.frag">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\Default.vert">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\FinalPass.FFrag">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\FinalPass.FVert">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\GeometryDefault.GFrag">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\GeometryDefault.GVert">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\LightDefault.LFrag">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\LightDefault.LVert">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\DirectionalLight.LVert">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\DirectionalLight.LFrag">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\PointLight.LVert">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\PointLight.LFrag">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\UIShader.vert">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\UIShader.frag">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\Beam.GVert">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\Beam.GFrag">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\Player.GVert">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\Player.GFrag">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>

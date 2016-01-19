@@ -1,0 +1,11 @@
+CLASS
+PointLight
+
+RESPONSABILITIES
+Renders a point light at a specific location
+
+COLLABORATOES
+LightComponent
+TransformComponent
+Entity
+DeferedRenderer

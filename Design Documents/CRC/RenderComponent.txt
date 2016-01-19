@@ -1,0 +1,9 @@
+CLASS
+RenderComponent
+
+RESPONSABILITIES
+Renders the entity
+
+COLLABORATORS
+Component
+RenderState

@@ -1,0 +1,9 @@
+CLASS
+UIComponent
+
+RESPONSABILITIES
+Draws a ui element
+
+Collaborators
+ShaderProgram
+Component

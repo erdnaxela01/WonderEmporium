@@ -1,0 +1,56 @@
+START CLASS LogicSystem INHERITS from System and SceneObserver
+
+	START MEMBERS
+		logic:Group of logic components
+		timer:Timer
+	END MEMBERS
+	
+	START METHODS
+		/*
+		* arguments: none
+		* return: none
+		* purpose: update all the logic in the components
+		*/
+		START FUNCTION UpdateLogic
+			CALL PassedInterval on the timer member
+			IF it returned true
+				CALL GetInterval on the timer member
+				LOOP through all the logic components in the logic member
+					CALL Update on the current logic component and pass the return of GetInterval
+				END LOOP
+			END IF
+		END FUNCTION UpdateLogic
+		
+		/*
+		* arguments: none
+		* return: group of Callbacks
+		* purpose: returns the callbacks of the system
+		*/
+		START OVERRIDEN FUNCTION GetCallbacks
+			RETURN UpdateLogic
+		END OVERRIDEN FUNCTION GetCallbacks
+		
+		/*
+		* arguments: scene:Scene
+		* return: none
+		* purpose: notifies the logic system of the new scene
+		*/
+		START OVERRIDEN FUNCTION NotifyActiveScene
+			CALL GetEntities and store the entities
+			
+			LOOP through all the logic components in the logic member
+				CALL PopBack on the logic member
+			END LOOP
+			
+			LOOP through all the entities
+				CALL HasType on the current entity and pass LogicComponent
+				IF HasType returned true
+					CALL GetComponent on the current entity and pass Logic component
+					ADD the return to the logic member
+				END IF
+			
+			END LOOP
+		END OVERRIDEN FUNCTION NotifyActiveScene
+	END METHODS
+
+END CLASS LogicSystem

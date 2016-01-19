@@ -1,0 +1,8 @@
+CLASS
+HLInputMap
+
+RESPONSABILITIES
+Converts input from the InputSystem to input the entity cares abour
+
+COLLABORATORS
+InputHandler

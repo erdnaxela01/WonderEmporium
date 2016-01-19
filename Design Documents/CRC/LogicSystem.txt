@@ -1,0 +1,10 @@
+CLASS
+LogicSystem
+
+RESPONSABILITIES
+Updates the logic of LogicComponents
+
+COLLABORATORS
+Timer
+LogicComponent
+Entity

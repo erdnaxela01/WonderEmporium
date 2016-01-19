@@ -1,0 +1,8 @@
+CLASS
+Sytstem
+
+RESPONSIBILITIES
+Provides Callbacks
+
+COLLABORATORS
+Core

@@ -1,0 +1,16 @@
+#version 330
+
+uniform sampler2D u_LightTexture;
+uniform sampler2D u_DiffuseTexture;
+
+in vec2 o_Position;
+
+out vec4 Color;
+
+void main()
+{
+	//texture(u_LightTexture, o_Position) * texture(u_DiffuseTexture, o_Position)
+	vec4 light = texture(u_LightTexture, o_Position);
+	vec3 color = texture(u_DiffuseTexture, o_Position).xyz;
+	Color = vec4(vec3(light.a  * color)* light.z + color*(1.0-light.z), texture(u_DiffuseTexture, o_Position).a);
+}

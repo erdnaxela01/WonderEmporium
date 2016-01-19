@@ -1,0 +1,15 @@
+CLASS
+RenderSystem
+
+RESPONSABILITIES
+Draws Window
+Draws SceneGraphComponents
+Draws DeferedRenderer
+Exits the core
+
+COLLABORATORS
+Window
+SceneGraphComponent
+DeferedRenderer
+Core
+System

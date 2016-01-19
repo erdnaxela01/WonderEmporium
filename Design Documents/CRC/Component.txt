@@ -1,0 +1,8 @@
+CLASS
+Component
+
+RESPONSABILITIES
+Is held by Entity
+
+COLLABORATORS
+Entity

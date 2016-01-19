@@ -1,0 +1,8 @@
+CLASS 
+FinalPassSystem
+
+RESPONSABILITIES
+Displays the Defered Renderer
+
+COLLABORATORS
+DeferedRenderer

@@ -1,0 +1,7 @@
+newmtl acmat_0
+Kau 0.2 0.2 0.2
+Kal 0.1 0.1 0.1
+Kd 1 1 1
+Ks 0.2 0.2 0.2
+illum 1
+map capsule0.png

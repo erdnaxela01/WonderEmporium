@@ -1,0 +1,12 @@
+CLASS
+ParticleEmitter
+
+RESPONSABILITIES
+Renders a group of particles
+Renders it as a lighting beam
+
+COLLABORATORS
+RenderState
+RenderComponent
+ShaderProgram
+ParticleRenderer

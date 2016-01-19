@@ -1,0 +1,31 @@
+START CLASS LLInputMap
+
+	START MEMBERS
+		map:int and String
+	END MEMBERS
+	
+	START METHODS
+	
+		/*
+		*Arguments:	path:String
+		*Return: none
+		*Purpose: loads the map from a file
+		*/
+		START FUNCTION LoadMap
+			OPEN the map
+			SET all the values in map to be the ones in the file
+		END FUNCTION LoadMap
+		
+		/*
+		*Arguments:	code:Int
+		*Return: String
+		*Purpose: converts the int to a string
+		*/
+		START FUNCTION Convert
+			FIND the specified int
+			RETURN the string associated to the int
+		END FUNCTION Convert
+	
+	END METHODS
+
+END CLASS LLInputMap

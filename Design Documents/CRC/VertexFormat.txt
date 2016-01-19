@@ -1,0 +1,8 @@
+CLASS
+VertexFormat
+
+RESPONSABILITIES
+Holds data for the particles
+
+COLLABORATORS
+ParticleManager

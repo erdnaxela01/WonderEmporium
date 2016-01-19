@@ -1,0 +1,10 @@
+CLASS
+LightingSystem
+
+RESPONSABILITIES
+Renders Lights
+
+COLLABORATORS
+Entity
+LightComponent
+DeferedRenderer

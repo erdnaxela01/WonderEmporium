@@ -1,0 +1,9 @@
+CLASS
+CameraComponent
+
+RESPONSABILITIES
+Views the world
+
+COLLABORATORS
+ShaderProgram
+Component

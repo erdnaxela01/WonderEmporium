@@ -1,0 +1,83 @@
+START CLASS UISystem INHERITS from System and SceneObserver
+
+	START MEMBERS
+		ui:group of UIComponents
+		buffer:UniformBuffer
+		screenSize:vec2
+		window:Window
+	END MEMBERS
+	
+	
+	START METHODS
+		/*
+		* arguments:none
+		* return: none
+		* purpose: renders all the ui elements
+		*/
+		START FUNCTION Render
+			SET the screen size uniform in the buffer to be the screenSize member
+			LOOP through all the UIComponents in ui
+				CALL Render on the current UIComponent and pass buffer
+			END LOOP
+			CALL Display on the window member
+		END FUNCTION Render
+		
+		/*
+		* arguments: none
+		* return: group of Callbacks
+		* purpose:returns a callback to the render function
+		*/
+		START OVERRIDEN FUNCTION GetCallbacks
+			RETURN Render as a callback
+		END OVERRIDEN FUNCTION GetCallbacks
+		
+		/*
+		* arguments: scene:Scene
+		* return: none
+		* purpose: notifies the system of a new active scene
+		*/
+		START OVERRIDEN FUNCTION NotifyActiveScene
+			LOOP through all the UIComponents in ui
+				CALL PopBack on the ui member
+			END LOOP
+			
+			CALL GetEntities and store the result
+			LOOP through all entities
+				CALL HasType and pass UIComponent
+				IF  it returned true
+					CALL GetComponent and pass UIComponent
+					SET the return to ui
+				END IF
+			END LOOP
+		END OVERRIDEN FUNCTION NotifyActiveScene
+		
+		/*
+		* arguments: size:vec2
+		* return: none
+		* purpose: sets the screen size of the ui
+		*/
+		START FUNCTION SetScreenSize
+			SET screenSize to size
+		END FUNCTION SetScreenSize
+		
+		/*
+		* arguments: none
+		* return: vec2
+		* purpose: returns the size of the camera
+		*/
+		START FUNCTION GetScreenSize
+			RETURN the screenSize member
+		END FUNCTION GetScreenSize
+	
+		/*
+		* arguments:window:Window
+		* return: none
+		* purpose: passes the window to the ui system
+		*/
+		START FUNCTION UISystem
+			set the window member to window
+		END FUNCTION UISystem
+	
+	END METHODS
+
+END CLASS UISystem

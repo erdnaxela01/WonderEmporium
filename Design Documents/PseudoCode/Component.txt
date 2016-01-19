@@ -1,0 +1,14 @@
+START INTERFACE Component
+
+	START METHODS
+		/*
+		* Arguments: type:ComponentType
+		* Return: Bool
+		* Purpose: Needs to be overriden, returns true if the type matches the component type
+		*/
+		START FUNCTION Match
+		
+		END FUNCTION Match
+	END METHODS
+
+END INTERFACE Component

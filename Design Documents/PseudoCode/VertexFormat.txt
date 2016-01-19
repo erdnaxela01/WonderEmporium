@@ -1,0 +1,9 @@
+START CLASS VertexFormat
+
+	START MEMBERS
+		color:vec4
+		positionA:vec3
+		positionB:vec3
+	END MEMBERS
+
+END CLASS VertexFormat

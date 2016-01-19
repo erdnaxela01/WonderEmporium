@@ -1,0 +1,8 @@
+CLASS
+TransformComponent
+
+RESPONSABILITIES
+Holds the world information of an entity
+
+COLLABORATORS
+Component

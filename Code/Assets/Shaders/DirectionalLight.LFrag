@@ -1,0 +1,25 @@
+#version 330
+
+
+
+uniform sampler2D u_Texture0; //diffuse
+uniform sampler2D u_Texture1; //position
+uniform sampler2D u_Texture2; //normal
+
+
+uniform vec3 u_Direction;
+
+in vec2 TexCoord;
+
+layout(location = 0) out vec4 Lighting;
+
+const float MAX_DARKNESS = 0.2;
+
+void main()
+{
+	//get the directional light level
+	float level =max(dot(texture(u_Texture2, TexCoord).xyz, -u_Direction), MAX_DARKNESS);
+
+	//pass the level
+	Lighting = vec4(vec2(0.0),texture(u_Texture1, TexCoord).w, level);
+}

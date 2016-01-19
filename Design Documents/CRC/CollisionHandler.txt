@@ -1,0 +1,9 @@
+CLASS
+CollisionHandler
+
+RESPONSABILITIES
+Handles collisions between another object
+
+COLLABORATORS
+Entity
+Component

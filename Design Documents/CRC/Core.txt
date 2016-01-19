@@ -1,0 +1,11 @@
+CLASS:
+Core
+
+RESPONSIBILITIES:
+Exits the program
+Holds systems
+Calls all Callbacks
+
+COLLABORATORS
+System
+

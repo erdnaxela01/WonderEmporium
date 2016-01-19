@@ -1,0 +1,43 @@
+#version 330
+
+in vec3 i_VertexPos;
+in vec2 i_TexCoord;
+in vec3 i_Normal;
+
+layout (std140) uniform Matrices
+{
+	uniform mat4 u_MMatrix;
+	uniform mat4 u_VPMatrix;
+	uniform mat4 u_NormalMatrix;	
+};
+
+
+//uniform vec3 u_Specular;
+//uniform vec3 u_Diffuse;
+//uniform float u_Illumination;
+//uniform vec3 u_AmbientUpper;
+//uniform vec3 u_AmbientLower;
+
+uniform vec3 u_BaseScale;
+
+out vec2 TexCoord;
+
+out vec3 Position;
+out vec3 Normal;
+
+
+void main()
+{
+	//get the texture
+	TexCoord = i_TexCoord;
+	//get the normal
+	Normal = (u_NormalMatrix * vec4(i_Normal, 1)).xyz;
+
+	//set the position of the vertex
+	vec3 pos = i_VertexPos * u_BaseScale;
+	vec4 position = (u_MMatrix)*vec4(pos,1);
+	//pass world the position
+	Position = position.xyz;
+	//set up the real position
+	gl_Position = (u_VPMatrix * u_MMatrix)*vec4(pos,1);  
+}

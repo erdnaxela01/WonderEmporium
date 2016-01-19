@@ -1,0 +1,12 @@
+CLASS
+ParentNode
+
+RESPONSABILITIES
+Renders itself and all of its children
+Keeps them relative to its position
+Finds Entities
+
+COLLABORATORS
+Node
+Entity
+RenderState

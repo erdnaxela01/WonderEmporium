@@ -1,0 +1,11 @@
+CLASS
+InputHandler
+
+RESPONSABILITIES
+Handles input sent by the InputSystem
+
+
+COLLABORATORS
+InputSystem
+Component
+HLInputMap

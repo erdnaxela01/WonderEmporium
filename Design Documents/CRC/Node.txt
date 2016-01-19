@@ -1,0 +1,15 @@
+CLASS
+Node
+
+RESPONSABILITIES
+Renders a RenderComponent
+Makes sure its in the right place
+Finds Entity
+Is a node in the scene graph
+
+COLLABORATORS
+Entity
+RenderComponent
+TransformComponent
+RenderState
+Component

@@ -1,0 +1,56 @@
+START CLASS LightComponent inherits from Component
+
+	START MEMBERS
+		enabled:Bool
+		program:ShaderProgram
+	END MEMBERS
+	
+	START METHODS
+		/*
+		* arguments: renderer:DeferedRenderer
+		* return: none
+		* purpose: must be overriden
+		*/
+		START FUNCTION Render
+			
+		END FUNCTION Render
+		
+		/*
+		* arguments: none
+		* return: none
+		* purpose: enables the light
+		*/
+		START FUNCTION Enable
+			SET the enabled flag to true
+		END FUNCTION Enable
+		
+		/*
+		* arguments: none
+		* return: none
+		* purpose: disables the light
+		*/
+		START FUNCTION Disable
+			SET the enabled member to false
+		END FUNCTION Disable
+		
+		/*
+		* arguments: vert:String, frag:String
+		* return: none
+		* purpose: set the shader and the entity
+		*/
+		START FUNCTION LightComponent
+			pass the vert and frag arguments to the program member
+		END FUNCTION LightComponent
+		
+		
+		/*
+		* arguments: type:ComponentType
+		* return: none
+		* purpose: checks if the component is a LightComponent
+		*/
+		START OVERRIDEN FUNCTION Match
+			RETURN true if type is equal to LightComponent
+		END OVERRIDEN FUNCTION Match
+	END METHODS
+
+END CLASS LightComponent

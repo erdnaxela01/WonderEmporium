@@ -1,0 +1,6 @@
+m 41:A
+m 44:D
+m 53:S
+m 57:W
+m 1B:ESC
+m 20:SPACE

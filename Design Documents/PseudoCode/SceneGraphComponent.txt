@@ -1,0 +1,76 @@
+START CLASS SceneGraphComponent INHERITS from Component
+
+	START MEMBERS
+		children:Group of Nodes
+		cameras:Group of CameraComponents
+	END MEMBERS
+	
+	START METHODS
+		/*
+		*Arguments:	entity:Entity
+		*Return: none
+		*Purpose: Adds an entity with a node component to the scene graph
+		*/
+		START FUNCTION AddChild
+			CALL HasType on entity and pass Node as component type
+			IF HasType returned true
+				ADD entity to the children component
+			END IF
+		END FUNCTION AddChild
+		
+		/*
+		*Arguments:	entity:Entity
+		*Return: none
+		*Purpose: Adds an entity with a camera component
+		*/
+		START FUNCTION AddCamera
+			CALL HasType on entity and pass CameraComponent as the component type
+			IF HasType returned true
+				ADD entity to the cameras member
+			END IF
+		END FUNCTION AddCamera
+		
+		/*
+		*Arguments:	state:RenderState
+		*Return: none
+		*Purpose: Render the scene graph component and all its children
+		*/
+		START FUNCTION Render
+			LOOP through all the cameras in the cameras member
+				CALL View on the current camera and pass state
+				CALL GetInverse on the current camera and store the value
+				CALL Multiply on the MatrixStack in state and pass the stored return of the camera
+				LOOP through all the children
+					CALL Render on the current child and pass state
+				END LOOP
+				CALL Pop on the MatrixStack in state
+			END LOOP
+		END FUNCTION Render
+		
+		/*
+		*Arguments:	type:componentType
+		*Return: Bool
+		*Purpose: checks the type of component
+		*/
+		START OVERRIDEN FUNCTION Match
+			RETURN true if the type is equal to SceneGraphComponent
+		END OVERRIDEN FUNCTION MAtch
+		
+		/*
+		*Arguments:	name:String, result:Entity
+		*Return: Bool
+		*Purpose: find the entity with the name
+		*/
+		START FUNCTION Find
+			LOOP through all the nodes in the children member
+				CALL Find on the current Node and pass name and result
+				IF it Find returned true
+					RETURN true
+				END IF
+			END LOOP
+			return false
+		END FUNCTION Find
+		
+	END METHODS
+
+END CLASS SceneGraphComponent

@@ -1,0 +1,44 @@
+#version 330
+
+uniform sampler2D u_Texture;
+
+
+in vec2 TexCoord;
+in vec3 Position;
+in vec3 Normal;
+in vec3 BasicVerts;
+
+layout(location = 0) out vec4 DiffuseTex;
+layout(location = 1) out vec4 PositionTex;
+layout(location = 2) out vec4 NormalTex;
+
+uniform float u_TotalTime;
+uniform float u_DeltaTime;
+
+void main()
+{
+	
+	//pass the color of the texture
+	vec4 color = texture(u_Texture, TexCoord);
+	//diffuse color
+
+	float value;
+	//get a value between 0.0 and 1.0 as a sinusoidal interpolation
+	value = sin(3.1415 * (u_DeltaTime / u_TotalTime));
+	//get the fractal value of 2 and the z of the model and multiply it to get a value between 0.0 and 1.0 that changes based on the fractal
+	value *= fract(2.0 / BasicVerts.z);
+	//transform the value into a value that is inverted to get 1.0 - 0.0 - 1.0
+	value =1.0 -abs( (value * 2.0) - 1.0);
+
+	//give it a greenish color
+	vec3 otherColor = vec3(0.0, 0.5, 0.0) * value;
+
+	//multiply the color by that
+	DiffuseTex = vec4(color.xyz + otherColor * value, color.a);
+
+	//position
+	PositionTex = vec4(Position, 1);
+
+	//normal
+	NormalTex = vec4(Normal, 1);
+}

@@ -1,0 +1,85 @@
+START CLASS Entity
+
+	START MEMBERS
+		components:Group of Components
+		name:String
+		static core:Core
+	END MEMBERS
+
+	START METHODS
+		/*
+		* Arguments: component:Component
+		* Return: none
+		* Purpose: adds a component to the entity
+		*/
+		START FUNCTION AddComponent
+			ADD component to the components member
+		END FUNCTION AddComponent
+		
+		/*
+		* Arguments: type:ComponentType
+		* Return: Bool
+		* Purpose: checks if the entity has a component
+		*/
+		START FUNCTION HasType
+			LOOP through all the components in the components member
+				CALL Match on the current Component and pass type
+				IF Match returned true
+					RETURN true
+				END IF
+			END LOOP
+			RETURN false
+		END FUNCTION HasType
+		
+		
+		/*
+		* Arguments: type:ComponentType
+		* Return: Component
+		* Purpose: returns a component associated to the entity
+		*/
+		START FUNCTION GetComponent
+			LOOP through all the components in the components member
+				CALL Match on the current component and pass type to it
+				IF Match returned true
+					RETURN the current component
+				END IF
+			END LOOP
+			RETURN nothing
+		END FUNCTION GetComponent
+		
+		/*
+		* Arguments: none
+		* Return: String
+		* Purpose: returns the name of the entity
+		*/
+		START FUNCTION Name
+			RETURN the name member
+		END FUNCTION Name
+		
+		/*
+		* Arguments: type:ComponentType
+		* Return: none
+		* Purpose: remove a component from an entity
+		*/
+		START FUNCTION RemoveComponent
+			LOOP through all the components in the components member
+				CALL Match on the current component and pass type
+				IF Match returned true
+					REMOVE the current component
+				END IF
+			END LOOP
+		END FUNCTION RemoveComponent
+		
+		
+		/*
+		* Arguments: name:String
+		* Return: none
+		* Purpose: Needs to be overriden
+		*/
+		START FUNCTION Entity
+			SET the name member to name
+		END FUNCTION Entity
+		
+	END METHODS
+
+END CLASS Entity

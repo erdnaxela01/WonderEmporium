@@ -1,0 +1,33 @@
+#version 330
+
+in vec3 i_PointA;
+in vec3 i_PointB;
+in vec3 i_Position;
+in vec4 i_Color;
+
+layout (std140) uniform Matrices
+{
+	uniform mat4 u_MMatrix;
+	uniform mat4 u_VPMatrix;
+	uniform mat4 u_NormalMatrix;	
+};
+
+uniform float u_Scale;
+
+out vec4 Color;
+out float Intensity;
+
+void main()
+{
+	Color = i_Color;
+	Intensity = i_Position.y;
+
+	vec4 pos;
+	pos.xy = (i_Position.x * i_PointA.xy) + ((1.0-i_Position.x) * i_PointB.xy);
+	pos.y += (i_Position.y * u_Scale);
+	pos.z - i_Position.z;
+	pos.w = 1.0;
+	pos = (u_VPMatrix * u_MMatrix)*pos;
+
+	gl_Position = pos;
+}

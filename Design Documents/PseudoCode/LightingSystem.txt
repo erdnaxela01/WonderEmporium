@@ -1,0 +1,61 @@
+START CLASS LightingSystem INHERITS from System and SceneObserver
+
+	START MEMBERS
+		renderer:DeferedRenderer
+		lights:LightComponent
+	END MEMBERS
+	
+	START METHODS
+		/*
+		* arguments:none
+		* return: none
+		* purpose: render all the lights
+		*/
+		START FUNCTION Render
+			CALL LightingPass on the renderer member
+			LOOP through all the lights in the lights member
+				CALL Render on the current light and pass the renderer member
+			END LOOP
+		END FUNCTION Render
+		
+		/*
+		* arguments: scene:Scene
+		* return: none
+		* purpose: notify the scene as the active scene
+		*/
+		START OVERRIDEN FUNCTION NotifyActiveScene
+			LOOP through all the lights in lights member
+				CALL PopBack on the ligths member
+			END LOOP
+			
+			CALL GetEntities on scene
+			LOOP through all the entities
+				CALL HasType on the current entity and pass LightComponent
+				IF it returned true
+					CALL GetComponent on the current entity and pass LightComponent
+					ADD the return to the lights member
+				END IF
+			END LOOP
+		END OVERRIDEN FUNCTION NotifyActiveScene
+		
+		/*
+		* arguments: renderer:DeferedRenderer
+		* return: none
+		* purpose: sets the renderer to the lighting system
+		*/
+		START FUNCTION LightingSystem
+			SET renderer member to renderer
+		END FUNCTION LightingSystem
+		
+		/*
+		* arguments: none
+		* return: group of Callbacks
+		* purpose: returns the callbacks of the system
+		*/
+		START OVERRIDEN FUNCTION GetCallbacks
+			RETURN the Render method
+		END OVERRIDEN FUNCTION GetCallbacks
+		
+	END METHODS
+
+END CLASS LightingSystem

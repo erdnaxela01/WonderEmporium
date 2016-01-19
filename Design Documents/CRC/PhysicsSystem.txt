@@ -1,0 +1,11 @@
+CLASS
+PhysicsSystem
+
+RESPONSABILITIES
+Updates the physics components
+Updates the world
+
+COLLABORATORS
+PhysicsComponent
+PhysicsWorld
+System

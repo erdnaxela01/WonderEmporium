@@ -1,0 +1,68 @@
+START CLASS Timer
+
+	START MEMBERS
+		startTime:time_point
+		intervalTime:double
+		previousTime:double
+	END MEMBERS
+	
+	START METHODS
+		/*
+		*Arguments:	none
+		*Return: none
+		*Purpose: sets the timer to the start time
+		*/
+		START FUNCTION Timer
+			SET startTime to the start time
+			SET intervalTime to 0
+			SET previousTime to 0
+		END FUNCTION Timer
+		
+		/*
+		*Arguments:	none
+		*Return: double
+		*Purpose: returns the current time minus the start time
+		*/
+		START FUNCTION GetSystemTime
+			GET the currentTime
+			RETURN currentTime MINUS the startTime member
+		END FUNCTION GetSystemTime
+		
+		
+		/*
+		*Arguments:	time:double
+		*Return: none
+		*Purpose: sets the amount of time per interval
+		*/
+		START FUNCTION SetInterval
+			SET intervalTime to time
+		END FUNCTION SetInterval
+		
+		/*
+		*Arguments:	none
+		*Return: Bool
+		*Purpose: tells if an interval has been passed
+		*/
+		START FUNCTION PassedInterval
+			CALL GetSystemTime
+			IF return MINUS previousTime is OVER intervalTime
+				SET previousTime to return value
+				RETURN true
+			END IF
+			RETURN false
+			
+		END FUNCTION PassedInterval
+		
+		/*
+		*Arguments:	none
+		*Return: double
+		*Purpose: returns the time between intervals
+		*/
+		START FUNCTION GetInterval
+			RETURN intervalTime
+		END FUNCTION GetInterval
+		
+	
+	END METHODS
+
+END CLASS Timer

@@ -1,0 +1,11 @@
+CLASS
+CollisionHandling
+
+RESPONSABILITIES
+Handles collisions between PhysicsComponents
+Notifies the CollisionHandlers of a collisions
+
+COLLABORATORS
+CollisionHandler
+Entity
+PhysicsComponent

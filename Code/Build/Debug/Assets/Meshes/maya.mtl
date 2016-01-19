@@ -1,0 +1,12 @@
+newmtl Model001_Material001
+map SirenHands_Dif.png
+
+newmtl Model001_Material002
+map SirenBody_Bm.png
+
+newmtl Model001_Material003
+ma SirenHead_Bm.png
+
+newmtl Model001_Material004
+map Mouth.png
+

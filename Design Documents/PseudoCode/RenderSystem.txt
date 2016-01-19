@@ -1,0 +1,114 @@
+START CLASS RenderSystem INHERITS from System and SceneObserver
+
+	START MEMBERS
+		window:Window
+		scenes:SceneGraphComponent
+		core:Core
+		buffer:UniformBuffer
+		renderer:DeferedRenderer
+	END MEMBERS
+	
+	START METHODS
+		
+		
+		/*
+		* Arguments: none
+		* Return: none
+		* Purpose: renders the scene graphs
+		*/
+		START FUNCTION Render
+			CALL IsActive on the window member
+			IF IsActive returned false
+				CALL SetExit on the core member and pass true
+			END IF
+			
+			CALL Clear on the window member
+			
+			CALL Run on the window member
+			
+			
+			CREATE a MatrixStack called stack
+			CREATE a MatrixStack called normalStack
+			CALL GeometryPass on the renderer member
+			LOOP through all the SceneGraphComponents in scenes member
+				
+				CALL Clear on stack
+				CALL Clear on the normal stack
+				CALL Render on the current SceneGraphComponent and pass the matrix stack, the normalStack and the buffer member
+				
+			END LOOP
+			
+			CALL Display on the window
+		END FUNCTION Render
+		
+		/*
+		* Arguments: scene:Scene
+		* Return: none
+		* Purpose: tells the render system of a new scene on the stack
+		*/
+		START OVERRIDEN FUNCTION NotifyActiveScene
+			CALL GetEntities on scene and store all the entities
+			
+			LOOP through all the scenes
+				CALL PopBack on the scenes member
+			END LOOP
+			
+			LOOP through all the resize cameras
+				CALL PopBack on the resize cameras
+			END LOOP
+			LOOP through all the stored entities
+				CALL HasType on the current entity and pass SceneGraphComponent as the component type
+				IF HasType returned true
+					CALL GetComponent on the current entity and pass SceneGraphComponent
+					Store the result in the scenes member
+				END IF
+				
+				CALL HasType on current entity and pass CameraComponent as the component type
+				IF HasType returned true
+					CALL GetComponent on the current entity and pass CameraComponent
+					store the result in the static ResizeCameras
+				END IF
+			END LOOP
+		END OVERRIDEN FUNCTION NotifyActiveScene
+		
+		
+		/*
+		* Arguments: none
+		* Return: group of callbacks
+		* Purpose: returns the callbacks of the system
+		*/
+		START OVERRIDEN FUNCTION GetCallbacks
+			RETURN a callback to our Render method
+		END OVERRIDEN FUNCTION GetCallbacks
+
+		/*
+		* Arguments: name:String
+		* Return: none
+		* Purpose: Sets the active scene
+		*/
+		START FUNCTION SetActiveScene
+			SET the currentScene member to name
+		END FUNCTION SetActiveScene
+		
+		/*
+		* Arguments: none
+		* Return: DeferedRenderer
+		* Purpose: returns the defered renderer
+		*/
+		START FUNCTION GetRenderer
+			RETURN renderer member
+		END FUNCTION GetRenderer
+		
+		
+		/*
+		*arguments: none
+		*return: Window
+		* purpose: return the window of the system
+		*/
+		START FUNCTION GetWindow
+			RETURN the window member
+		END FUNCTION GetWindow
+	
+	END METHODS
+
+END CLASS RenderSystem

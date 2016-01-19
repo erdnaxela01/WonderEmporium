@@ -1,0 +1,45 @@
+START CLASS LogicComponent INHERITS from Component
+
+	START MEMBER
+		enabled:Bool
+	END MEMBER
+
+	START METHODS
+		/*
+		* arguments: delta:Double
+		* return: none
+		* purpose: must be overriden
+		*/
+		START FUNCTION Update
+		
+		END FUNCTION Update
+		
+		/*
+		* arguments: enabled:bool 
+		* return: none
+		* purpose: set the logic component to enabled
+		*/
+		START FUNCTION SetEnabled
+			SET the enabled member to enabled
+		END FUNCTION SetEnabled
+		
+		/*
+		* arguments: none
+		* return: Bool
+		* purpose: tells if the component is enabled
+		*/
+		START FUNCTION IsEnabled
+			RETURN the enabled member
+		END FUNCTION IsEnabled
+		
+		/*
+		*Arguments:	type:componentType
+		*Return: Bool
+		*Purpose: returns true if type matches LogicComponent
+		*/
+		START OVERRIDEN FUNCTION Match
+			RETURN true if tyoe is EQUAL to LogicComponent
+		END OVERRIDEN FUNCTION Match
+	END METHODS
+
+END CLASS LogicComponent

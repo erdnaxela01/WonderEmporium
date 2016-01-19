@@ -1,0 +1,45 @@
+START CLASS LabelComponent INHERITS from UIComponent
+
+	START MEMBERS
+		font:Font
+	END MEMBERS
+	
+	START METHODS
+		/*
+		* arguments:type:ComponentType
+		* return: Bool
+		* purpose: checks if the component is a UIComponent
+		*/
+		START OVERRIDEN FUNCTION Match
+			RETURN true if type is EQUAL to LabelComponent
+		END OVERRIDEN FUNCTION Match
+		
+		/*
+		* arguments: none
+		* return: Font
+		* purpose: returns the font associated to the label component
+		*/
+		START FUNCTION GetText
+			RETURN the font member
+		END FUNCTION GetText
+		
+		/*
+		* arguments: width:Float, height:Float, format:String, path:String
+		* return: none
+		* purpose: sets the font for the label
+		*/
+		START FUNCTION LabelComponent
+			PASS all the values to the font member
+		END FUNCTION LabelComponent
+		
+		/*
+		* arguments: buffer:UniformBuffer
+		* return: none
+		* purpose: renders the font
+		*/
+		START OVERRIDEN FUNCTION Render
+			CALL Render on the font and pass the program member
+		END OVERRIDEN FUNCTION Render
+	END METHODS
+
+END CLASS LabelComponent

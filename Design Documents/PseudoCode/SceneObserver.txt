@@ -1,0 +1,15 @@
+START INTERFACE SceneObserver
+
+	START METHODS
+	
+		/*
+		* Arguments: scene:Scene
+		* Return: none
+		* Purpose: notify the observer of a new active scene
+		*/
+		START FUNCTION NotifyActiveScene
+		
+		END FUNCTION NotifyActiveScene
+	END METHODS
+
+END INTERFACE SceneObserver

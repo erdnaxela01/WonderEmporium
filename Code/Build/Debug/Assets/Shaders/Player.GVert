@@ -1,0 +1,72 @@
+#version 330
+
+
+in vec3 i_VertexPos;
+in vec2 i_TexCoord;
+in vec3 i_Normal;
+
+layout (std140) uniform Matrices
+{
+	uniform mat4 u_MMatrix;
+	uniform mat4 u_VPMatrix;
+	uniform mat4 u_NormalMatrix;	
+};
+
+
+uniform vec3 u_BaseScale;
+uniform float u_TotalTime;
+uniform float u_DeltaTime;
+
+out vec2 TexCoord;
+
+out vec3 Position;
+out vec3 Normal;
+out vec3 BasicVerts;
+
+
+
+void main()
+{
+	vec3 spike;
+
+	//set the position of the vertex
+	//set the initial scale
+	vec3 pos = (i_VertexPos * u_BaseScale);
+
+	/*
+	HOW:
+	Sets gets a value between 0 and 0.999999 based on if the value goes up to 5
+	Multiplies that by 2.0 to get it from 0 to 1.9999998
+	substracts 1 to the range to make it from -1.0 to 0.999998
+	does absolute to invert the values under 0
+	substracts that value from 1 to invert it
+	we now have a value that goes 0 - 1 - 0
+	*/
+	spike.y = 1.0 - abs((fract(pos.z / 5.0) * 2.0) - 1.0) ;
+	spike.x = 1.0 - abs((fract(pos.x / 5.0) * 2.0) - 1.0) ;
+	spike.z = 1.0 - abs((fract(pos.y / 5.0) * 2.0) - 1.0) ;
+
+	/*
+	create a circular interpolation curve based on time from 0 to 1 to 0
+	average both values between z and y and add one to get a value from
+	1 to 2 to 1
+	multiply our vertices from that
+	*/
+	spike *= sin(3.1415 * (u_DeltaTime / u_TotalTime));
+	pos *= ((spike.x + spike.y + spike.z) / 3.0 + 1.0);
+
+	//get the texture
+	TexCoord = i_TexCoord;
+	//get the normal
+	vec3 norm =i_Normal * ((spike.x + spike.y) / 2.0 + 1.0);
+	Normal = (u_NormalMatrix * vec4(normalize(norm), 1)).xyz;
+
+
+	BasicVerts = i_VertexPos;
+
+	vec4 position = (u_MMatrix)*vec4(pos,1);
+	//pass world the position
+	Position = position.xyz;
+	//set up the real position
+	gl_Position = (u_VPMatrix * u_MMatrix)*vec4(pos,1);  
+}

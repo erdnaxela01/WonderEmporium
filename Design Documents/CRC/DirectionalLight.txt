@@ -1,0 +1,9 @@
+CLASS
+DirectionalLight
+
+RESPONSABILITIES
+Renders a directional light
+
+COLLABORATORS
+DeferedRenderer
+LightComponent

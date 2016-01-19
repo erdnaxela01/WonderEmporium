@@ -1,0 +1,52 @@
+START CLASS RigidBodyComponent INHERITS from PhysicsComponent
+
+	START MEMBERS
+		motion:btMotionState
+		collision:btCollisionShape
+	END MEMBERS
+	
+	START METHODS
+		/*
+		* Arguments: mass:Float, motion:btMotionState, collision:btCollisionShape, inertia:vec3
+		* Return: none
+		* Purpose: sets all the values necessary for the creation of the rigid body component
+		*/
+		START FUNCTION RigidBodyComponent
+			SET the collision member to collision\
+			SET the motion member to member
+			CREATE a btRigidBody and pass mass, motion, collision and inertia
+			CALL PhysicsComponent and pass entity, and the new btRigidBody
+		END FUNCTION RigidBodyComponent
+		
+		/*
+		* Arguments: none
+		* Return: btRigidBody
+		* Purpose: returns the rigid body of the object
+		*/
+		START FUNCTION GetRigidBody
+			RETURN the inherited object member and cast it to a btRigidBody
+		END FUNCTION GetRigidBody
+		
+		/*
+		* Arguments: type:ComponentType
+		* Return: Bool
+		* Purpose: checks if the component is a RigidBodyComponent
+		*/
+		START OVERRIDEN FUNCTION Match
+			RETURN true if type is EQUAL to RigidBodyComponent
+		END OVERRIDEN FUNCTION Match
+		
+		/*
+		*Arguments:	world:btDynamicsWorld
+		*Return: none
+		*Purpose: adds the collision object to the world
+		*/
+		START OVEREIDEN FUNCTION AddToWorld
+			CALL addRigidBody on world and pass the object member
+		END OVERRIDEN FUNCTION AddToWorld
+		
+		
+	
+	END METHODS
+
+END CLASS RigidBodyComponent

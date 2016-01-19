@@ -1,0 +1,27 @@
+#version 330
+
+uniform sampler2D u_Texture;
+
+
+in vec2 TexCoord;
+in vec3 Position;
+in vec3 Normal;
+
+layout(location = 0) out vec4 DiffuseTex;
+layout(location = 1) out vec4 PositionTex;
+layout(location = 2) out vec4 NormalTex;
+
+void main()
+{
+	
+	//pass the color of the texture
+	vec4 color = texture(u_Texture, TexCoord);
+	//diffuse color
+	DiffuseTex = color;
+
+	//position
+	PositionTex = vec4(Position, 1);
+
+	//normal
+	NormalTex = vec4(Normal, 1);
+}

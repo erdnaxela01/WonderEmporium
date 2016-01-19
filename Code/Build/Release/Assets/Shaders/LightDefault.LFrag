@@ -1,0 +1,24 @@
+#version 330
+
+
+
+uniform sampler2D u_Texture0; //diffuse
+uniform sampler2D u_Texture1; //position
+uniform sampler2D u_Texture2; //normal
+
+in vec2 TexCoord;
+
+out vec4 Color;
+
+const float AMBIENT_ATTENUATION = 0.03;
+const vec3 GAMMA_CONSTANT = vec3(1.0/1.2);
+
+void main()
+{
+	
+
+
+	//pass the color of the texture
+	vec4 color = texture(u_Texture0, TexCoord);
+	Color = vec4(color);
+}

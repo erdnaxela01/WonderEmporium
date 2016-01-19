@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B85D10E4-352C-44FF-A740-4D5BA48AB2A2}</ProjectGuid>
+    <RootNamespace>WonderEmporium</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>../../Build/Debug/</OutDir>
+    <TargetName>WonderEmporium-Debug</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>../../Build/Release</OutDir>
+    <TargetName>WonderEmporium</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../Source;../../Libraries/Bullet/Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
+      <PreprocessorDefinitions>MY_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>opengl32.lib;..\..\Libraries\Bullet\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;Bullet3Common_Debug.lib;Bullet3Collision_Debug.lib;Bullet3Dynamics_Debug.lib;LinearMath_Debug.lib;BulletDynamics_Debug.lib;BulletCollision_Debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy /y /s /i "$(ProjectDir)..\..\Assets" "$(OutDir)Assets"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../Source;../../Libraries/Bullet/Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>opengl32.lib;..\..\Libraries\Bullet\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;Bullet3Common.lib;Bullet3Collision.lib;Bullet3Dynamics.lib;LinearMath.lib;BulletDynamics.lib;BulletCollision.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y "$(ProjectDir)../../Bin" "$(OutDir)"</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>xcopy /y /s /i "$(ProjectDir)..\..\Assets" "$(OutDir)Assets"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Game\BeamPlatform.cpp" />
+    <ClCompile Include="..\..\Game\Camera.cpp" />
+    <ClCompile Include="..\..\Game\Enemy.cpp" />
+    <ClCompile Include="..\..\Game\EnemyCollisionHandler.cpp" />
+    <ClCompile Include="..\..\Game\EnemyLogic.cpp" />
+    <ClCompile Include="..\..\Game\EnemyPool.cpp" />
+    <ClCompile Include="..\..\Game\PlayerCollisionHandler.cpp" />
+    <ClCompile Include="..\..\Game\CameraLogic.cpp" />
+    <ClCompile Include="..\..\Game\EventBox.cpp" />
+    <ClCompile Include="..\..\Game\EventCollisionHandler.cpp" />
+    <ClCompile Include="..\..\Game\Game.cpp" />
+    <ClCompile Include="..\..\Game\Platform.cpp" />
+    <ClCompile Include="..\..\Game\PlatformPiece.cpp" />
+    <ClCompile Include="..\..\Game\Player.cpp" />
+    <ClCompile Include="..\..\Game\PlayerInputHandler.cpp" />
+    <ClCompile Include="..\..\Game\PlayerLogic.cpp" />
+    <ClCompile Include="..\..\Game\PlayerModel.cpp" />
+    <ClCompile Include="..\..\Source\Collision\CollisionHandler.cpp" />
+    <ClCompile Include="..\..\Source\Collision\CollisionHandling.cpp" />
+    <ClCompile Include="..\..\Source\Config.cpp" />
+    <ClCompile Include="..\..\Source\Core\Component.cpp" />
+    <ClCompile Include="..\..\Source\Core\Core.cpp" />
+    <ClCompile Include="..\..\Source\Core\Entity.cpp" />
+    <ClCompile Include="..\..\Source\Core\SystemCallback.cpp" />
+    <ClCompile Include="..\..\Source\Core\SystemVarying.cpp" />
+    <ClCompile Include="..\..\Source\Input\HLInputMap.cpp" />
+    <ClCompile Include="..\..\Source\Input\Input.cpp" />
+    <ClCompile Include="..\..\Source\Input\InputHandler.cpp" />
+    <ClCompile Include="..\..\Source\Input\InputSystem.cpp" />
+    <ClCompile Include="..\..\Source\Input\LLInputMap.cpp" />
+    <ClCompile Include="..\..\Source\Logic\LogicComponent.cpp" />
+    <ClCompile Include="..\..\Source\Logic\LogicSystem.cpp" />
+    <ClCompile Include="..\..\Source\main.cpp" />
+    <ClCompile Include="..\..\Source\Movement\PhysicsComponent.cpp" />
+    <ClCompile Include="..\..\Source\Movement\PhysicsSystem.cpp" />
+    <ClCompile Include="..\..\Source\Movement\RigidBodyComponent.cpp" />
+    <ClCompile Include="..\..\Source\Movement\TransformComponent.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\Logging\LightLogger.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\Memory\MemoryTracker.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\DeferedRenderer.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\Font.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\GL\GLExtensions.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\Helper.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\lodepng\lodepng.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\Material.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\Mesh.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\Model.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\ModelParser.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\ModelPool.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\ParticleRenderer.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\ShaderPool.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\ShaderProgram.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\Texture.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\TexturePool.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\UniformBuffer.cpp" />
+    <ClCompile Include="..\..\Source\MyLibs\OpenGL\Window.cpp" />
+    <ClCompile Include="..\..\Source\Rendering\CameraComponent.cpp" />
+    <ClCompile Include="..\..\Source\Rendering\DirectionalLight.cpp" />
+    <ClCompile Include="..\..\Source\Rendering\FinalPassSystem.cpp" />
+    <ClCompile Include="..\..\Source\Rendering\LabelComponent.cpp" />
+    <ClCompile Include="..\..\Source\Rendering\LightComponent.cpp" />
+    <ClCompile Include="..\..\Source\Rendering\LightingSystem.cpp" />
+    <ClCompile Include="..\..\Source\Rendering\ModelComponent.cpp" />
+    <ClCompile Include="..\..\Source\Rendering\Node.cpp" />
+    <ClCompile Include="..\..\Source\Rendering\ParentNode.cpp" />
+    <ClCompile Include="..\..\Source\Rendering\ParticleEmitter.cpp" />
+    <ClCompile Include="..\..\Source\Rendering\PointLight.cpp" />
+    <ClCompile Include="..\..\Source\Rendering\RenderComponent.cpp" />
+    <ClCompile Include="..\..\Source\Rendering\RenderState.cpp" />
+    <ClCompile Include="..\..\Source\Rendering\RenderSystem.cpp" />
+    <ClCompile Include="..\..\Source\Rendering\SceneGraphComponent.cpp" />
+    <ClCompile Include="..\..\Source\Rendering\UIComponent.cpp" />
+    <ClCompile Include="..\..\Source\Rendering\UISystem.cpp" />
+    <ClCompile Include="..\..\Source\Scene\Scene.cpp" />
+    <ClCompile Include="..\..\Source\Scene\SceneManagerSystem.cpp" />
+    <ClCompile Include="..\..\Source\Scene\SceneObserver.cpp" />
+    <ClCompile Include="..\..\Source\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Time\Timer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Game\BeamPlatform.h" />
+    <ClInclude Include="..\..\Game\Camera.h" />
+    <ClInclude Include="..\..\Game\Enemy.h" />
+    <ClInclude Include="..\..\Game\EnemyCollisionHandler.h" />
+    <ClInclude Include="..\..\Game\EnemyLogic.h" />
+    <ClInclude Include="..\..\Game\EnemyPool.h" />
+    <ClInclude Include="..\..\Game\PlayerCollisionHandler.h" />
+    <ClInclude Include="..\..\Game\CameraLogic.h" />
+    <ClInclude Include="..\..\Game\CollisionTag.h" />
+    <ClInclude Include="..\..\Game\EventBox.h" />
+    <ClInclude Include="..\..\Game\EventCollisionHandler.h" />
+    <ClInclude Include="..\..\Game\Game.h" />
+    <ClInclude Include="..\..\Game\Platform.h" />
+    <ClInclude Include="..\..\Game\PlatformPiece.h" />
+    <ClInclude Include="..\..\Game\Player.h" />
+    <ClInclude Include="..\..\Game\PlayerInputHandler.h" />
+    <ClInclude Include="..\..\Game\PlayerLogic.h" />
+    <ClInclude Include="..\..\Game\PlayerModel.h" />
+    <ClInclude Include="..\..\Source\Collision\CollisionHandler.h" />
+    <ClInclude Include="..\..\Source\Collision\CollisionHandling.h" />
+    <ClInclude Include="..\..\Source\Config.h" />
+    <ClInclude Include="..\..\Source\Core\Component.h" />
+    <ClInclude Include="..\..\Source\Core\ComponentPool.h" />
+    <ClInclude Include="..\..\Source\Core\Core.h" />
+    <ClInclude Include="..\..\Source\Core\Entity.h" />
+    <ClInclude Include="..\..\Source\Core\SystemCallback.h" />
+    <ClInclude Include="..\..\Source\Core\SystemVarying.h" />
+    <ClInclude Include="..\..\Source\Input\HLInputMap.h" />
+    <ClInclude Include="..\..\Source\Input\Input.h" />
+    <ClInclude Include="..\..\Source\Input\InputHandler.h" />
+    <ClInclude Include="..\..\Source\Input\InputSystem.h" />
+    <ClInclude Include="..\..\Source\Input\LLInputMap.h" />
+    <ClInclude Include="..\..\Source\Logic\LogicComponent.h" />
+    <ClInclude Include="..\..\Source\Logic\LogicSystem.h" />
+    <ClInclude Include="..\..\Source\Movement\PhysicsComponent.h" />
+    <ClInclude Include="..\..\Source\Movement\PhysicsSystem.h" />
+    <ClInclude Include="..\..\Source\Movement\RigidBodyComponent.h" />
+    <ClInclude Include="..\..\Source\Movement\TransformComponent.h" />
+    <ClInclude Include="..\..\Source\MyLibs\Logging\LightLogger.h" />
+    <ClInclude Include="..\..\Source\MyLibs\Math\mat4.h" />
+    <ClInclude Include="..\..\Source\MyLibs\Math\MatrixStack.h" />
+    <ClInclude Include="..\..\Source\MyLibs\Math\vec2.h" />
+    <ClInclude Include="..\..\Source\MyLibs\Math\Vec3.h" />
+    <ClInclude Include="..\..\Source\MyLibs\Math\vec4.h" />
+    <ClInclude Include="..\..\Source\MyLibs\Memory\MemoryTracker.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\DeferedRenderer.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\Font.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\GL\glext.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\GL\GLExtensions.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\GL\wglext.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\ModelPool.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\ParticleRenderer.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\UniformBuffer.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\Helper.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\lodepng\lodepng.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\Material.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\Mesh.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\Model.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\ModelParser.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\ShaderPool.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\ShaderProgram.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\Texture.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\TexturePool.h" />
+    <ClInclude Include="..\..\Source\MyLibs\OpenGL\Window.h" />
+    <ClInclude Include="..\..\Source\Rendering\CameraComponent.h" />
+    <ClInclude Include="..\..\Source\Rendering\DirectionalLight.h" />
+    <ClInclude Include="..\..\Source\Rendering\FinalPassSystem.h" />
+    <ClInclude Include="..\..\Source\Rendering\LabelComponent.h" />
+    <ClInclude Include="..\..\Source\Rendering\LightComponent.h" />
+    <ClInclude Include="..\..\Source\Rendering\LightingSystem.h" />
+    <ClInclude Include="..\..\Source\Rendering\ModelComponent.h" />
+    <ClInclude Include="..\..\Source\Rendering\Node.h" />
+    <ClInclude Include="..\..\Source\Rendering\ParentNode.h" />
+    <ClInclude Include="..\..\Source\Rendering\ParticleEmitter.h" />
+    <ClInclude Include="..\..\Source\Rendering\PointLight.h" />
+    <ClInclude Include="..\..\Source\Rendering\RenderComponent.h" />
+    <ClInclude Include="..\..\Source\Rendering\RenderState.h" />
+    <ClInclude Include="..\..\Source\Rendering\RenderSystem.h" />
+    <ClInclude Include="..\..\Source\Rendering\SceneGraphComponent.h" />
+    <ClInclude Include="..\..\Source\Rendering\UIComponent.h" />
+    <ClInclude Include="..\..\Source\Rendering\UISytstem.h" />
+    <ClInclude Include="..\..\Source\Scene\Scene.h" />
+    <ClInclude Include="..\..\Source\Scene\SceneManagerSystem.h" />
+    <ClInclude Include="..\..\Source\Scene\SceneObserver.h" />
+    <ClInclude Include="..\..\Source\stdafx.h" />
+    <ClInclude Include="..\..\Source\Time\Timer.h" />
+    <ClInclude Include="..\..\Source\Tools\ArrayList.h" />
+    <ClInclude Include="..\..\Source\Types.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Assets\Shaders\Beam.GFrag" />
+    <None Include="..\..\Assets\Shaders\Beam.GVert" />
+    <None Include="..\..\Assets\Shaders\Default.frag" />
+    <None Include="..\..\Assets\Shaders\Default.vert" />
+    <None Include="..\..\Assets\Shaders\DirectionalLight.LFrag" />
+    <None Include="..\..\Assets\Shaders\DirectionalLight.LVert" />
+    <None Include="..\..\Assets\Shaders\FinalPass.FFrag" />
+    <None Include="..\..\Assets\Shaders\FinalPass.FVert" />
+    <None Include="..\..\Assets\Shaders\GeometryDefault.GFrag" />
+    <None Include="..\..\Assets\Shaders\GeometryDefault.GVert" />
+    <None Include="..\..\Assets\Shaders\LightDefault.LFrag" />
+    <None Include="..\..\Assets\Shaders\LightDefault.LVert" />
+    <None Include="..\..\Assets\Shaders\Player.GFrag" />
+    <None Include="..\..\Assets\Shaders\Player.GVert" />
+    <None Include="..\..\Assets\Shaders\PointLight.LFrag" />
+    <None Include="..\..\Assets\Shaders\PointLight.LVert" />
+    <None Include="..\..\Assets\Shaders\UIShader.frag" />
+    <None Include="..\..\Assets\Shaders\UIShader.vert" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

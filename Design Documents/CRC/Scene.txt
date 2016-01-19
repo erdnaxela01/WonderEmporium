@@ -1,0 +1,11 @@
+CLASS
+Scene
+
+RESPONSABILITIES
+Holds entities
+Loads Entities
+Finds Entities
+
+COLLABORATORS
+SceneManagerSystem
+Entity

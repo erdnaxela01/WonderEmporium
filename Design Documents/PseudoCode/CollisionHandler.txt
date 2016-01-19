@@ -1,0 +1,31 @@
+START INTERFACE CollisionHandler INHERITS from Component
+
+	START MEMBERS
+	
+	END MEMBERS
+	
+	START METHODS
+	
+		/*
+		*arguments: entity1:Entity, entity2:Entity
+		* return: none
+		* purpose: tells the collision handler about a collision and who collided Must be overriden
+		*/
+		
+		START FUNCTION HandleCollision
+			
+		END FUNCTION HandleCollision
+	
+	
+		/*
+		*Arguments:	type:componentType
+		*Return: Bool
+		*Purpose: returns true if type matches CollisionHandler
+		*/
+		START OVERRIDEN FUNCTION Match
+			RETURN true if type is EQUAL to CollisionHandler
+		END OVERRIDEN FUNCTION Match
+	END METHODS
+
+
+END INTERFACE CollisionHandler

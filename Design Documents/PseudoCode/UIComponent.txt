@@ -1,0 +1,57 @@
+START CLASS UIComponent INHERITS from Component
+
+	START MEMBERS
+		screenPosition:vec2
+		program:ShaderProgram
+	END MEMBERS
+	
+	START METHODS
+		/*
+		* arguments: screenPosition:vec2
+		* return: none
+		* purpose: sets the position of the object in normalized coordinates
+		*/
+		START FUNCTION SetScreenPosition
+			set the screenPosition member to screenPosition
+		END FUNCTION SetScreenPosition
+		
+		/*
+		* arguments: none
+		* return: vec2
+		* purpose: returns the position of the object
+		*/
+		START FUNCTION GetScreenPosition
+			RETURN the screenPosition member
+		END FUNCTION GetScreenPosition
+		
+		/*
+		* arguments: buffer:UniformBuffer
+		* return: none
+		* purpose: renders the UIComponent
+		*/
+		START FUNCTION Render
+			SET the screenPosition uniform to be the screenUniform member
+			CALL RegisterShader on buffer and pass the program member
+		END FUNCTION Render
+		
+		/*
+		* arguments: vert:String, frag:String
+		* return: none
+		* purpose: sets the shader 
+		*/
+		START FUNCTION UIComponent
+			PASS vert and frag to the program member
+		END FUNCTION UIComponent
+		
+		/*
+		* arguments: type:ComponentType
+		* return: Bool
+		* purpose: checks if the type is a UIComponent
+		*/
+		START OVERRIDEN FUNCTION Match
+			RETURN true if type is EQUAL to UIComponent
+		END OVERRIDEN FUNCTION Match
+	
+	END METHODS
+
+END CLASS UIComponent

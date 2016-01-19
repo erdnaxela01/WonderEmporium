@@ -1,0 +1,7 @@
+CLASS
+LogicComponent
+
+RESPONSABILITIES
+Updates logic of this object
+
+COLLABORATORS

@@ -1,0 +1,8 @@
+CLASS
+LLInputMap
+
+RESPONSABILITIES
+Converts input to other data defined by a file
+
+COLLABORATORS
+InputSystem

@@ -1,0 +1,40 @@
+START CLASS FinalPassSystem INHERITS from System
+
+	START MEMBERS
+		renderer:DeferedRenderer
+	END MEMBERS
+	
+	START METHODS
+	
+	
+		/*
+		* Arguments: renderer:DeferedRenderer
+		* Return: none
+		* purpose: set the renderer and window
+		*/
+		START FUNCTION FinalPassSystem
+			SET the renderer member to renderer
+		END FUNCTION FinalPassSystem
+		
+		/*
+		* Arguments: none
+		* Return: none
+		* purpose: render the final pass
+		*/
+		START FUNCTION Render
+			CALL FinalPass on the renderer member
+		END FUNCTION Render
+		
+		
+		/*
+		* Arguments: none
+		* Return: Callbacks
+		* purpose: return a callback to render
+		*/
+		START OVERRIDEN FUNCTION GetCallbacks
+			RETURN Render
+		END OVERIDEN FUNCTION GetCallbacks
+	
+	END METHODS
+
+END CLASS FinalPassSystem

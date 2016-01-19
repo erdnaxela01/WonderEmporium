@@ -1,0 +1,9 @@
+CLASS
+ParticleManager
+
+RESPONSABILITIES
+Updates a group of particles
+
+COLLABORATORS
+ParticleEmitter
+ParticleRenderer

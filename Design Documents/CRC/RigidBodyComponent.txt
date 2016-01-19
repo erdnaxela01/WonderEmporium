@@ -1,0 +1,8 @@
+CLASS
+RigidBodyComponent
+
+RESPONSABILITIES
+Holds collision information
+
+COLLABORATORS
+PhysicsComponent

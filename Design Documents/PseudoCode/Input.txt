@@ -1,0 +1,8 @@
+START CLASS Input
+
+	START MEMBERS
+		data:Data
+		name:String
+	END MEMBERS
+
+END CLASS Input

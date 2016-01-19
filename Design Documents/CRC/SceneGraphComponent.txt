@@ -1,0 +1,14 @@
+CLASS
+SceneGraphComponent
+
+RESPONSABILITIES
+Implements a Scene graph structure
+Renders nodes
+Finds Entities
+Views Cameras
+
+COLLABORATORS
+Entity
+CameraComponent
+Node
+Component

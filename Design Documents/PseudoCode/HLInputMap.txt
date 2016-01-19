@@ -1,0 +1,30 @@
+START CLASS HLInputMap
+
+	START MEMBERS
+		map:String and String
+	END MEMBERS
+	
+	START METHODS
+		/*
+		*Arguments:	type:String
+		*Return: String
+		*Purpose: convert the type to the mapped type
+		*/
+		START FUNCTION Convert
+			FIND the type in the map member
+			RETURN the type associated to the type in the map member
+		END FUNCTION Convert
+		
+		/*
+		*Arguments:	path:String
+		*Return: none
+		*Purpose: open the file and load the map
+		*/
+		START FUNCTION LoadMap
+			OPEN a file with path
+			FILL the map with the data in the file
+		END FUNCTION LoadMap
+	
+	END METHODS
+
+END CLASS HLInputMap

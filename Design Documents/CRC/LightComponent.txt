@@ -1,0 +1,9 @@
+CLASS
+LightComponent
+
+RESPONSABILITIES
+Renders a light using a shader
+
+COLLABORATORS
+DeferedRenderer
+ShaderProgram

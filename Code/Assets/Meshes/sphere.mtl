@@ -1,0 +1,7 @@
+newmtl Default_Smoothing
+Kau 0 0 0
+Kal 0 0 0
+Kd 0.784314 0.784314 0.784314
+Ks 0 0 0
+map sprite.png
+

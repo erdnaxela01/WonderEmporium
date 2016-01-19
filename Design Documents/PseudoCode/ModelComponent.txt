@@ -1,0 +1,52 @@
+START CLASS ModelComponent INHERITS from RenderComponent
+
+	START MEMBERS
+		model:Model
+		program:ShaderProgram
+	END MEMBERS
+	
+	START METHODS
+		/*
+		*Arguments:	state:RenderState
+		*Return: none
+		*Purpose: sets the matrix and renders the model
+		*/
+		START OVERRIDEN FUNCTION Render
+			CALL SetState and pass state
+			CALL RegisterShader on the buffer in state and pass the shader
+			CALL SetValues on the buffer in state
+			CALL Render on the model member and pass the ShaderProgram in state and Material Data
+		END OVERRIDEN  FUNCTION Render
+		
+		/*
+		*Arguments:	state:RenderState
+		*Return: none
+		*Purpose: sets the matrices of the component
+		*/
+		START OVERRIDEN FUNCTION SetState
+			CALL UseProgram on the program member
+			SET the Matrix in the shader
+			SET the normal matrix in the shader
+		END OVERRIDEN  FUNCTION SetState
+		
+		/*
+		*Arguments:	path:Model
+		*Return: none
+		*Purpose: sets the model
+		*/
+		START FUNCTION ModelComponent
+			CALL Parse on the ModelParser
+			SET model to be the return
+		START FUNCTION RenderComponent
+		
+		/*
+		*Arguments:	type:ComponentType
+		*Return: Bool
+		*Purpose: returns true is the type is equal to ModelComponent
+		*/
+		START OVERRIDEN FUNCTION Match
+			RETURN true if type is EQUAL to ModelComponent
+		END OVERRIDEN FUNCTION Match
+	END METHODS
+
+END CLASS ModelComponent

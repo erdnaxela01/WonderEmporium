@@ -1,0 +1,88 @@
+START CLASS ParticleManager
+
+	START MEMBERS
+		parent:ParticleEmitter
+	END MEMBERS
+	
+	START METHODS
+		/*
+		* arguments: emitter:ParticleEmitter
+		* return: none
+		* purpose: set the parent of the managwer
+		*/
+		START FUNCTION ParticleManager
+			set the parent member to emitter
+		END FUNCTION ParticleManager
+		
+		/*
+		* arguments: renderer:ParticleRenderer
+		* return: none
+		* purpose: sets up all the points for the particles
+		*/
+		START FUNCTION Evaluate
+			CALL PassedInterval on the parents timer
+			IF it returned false
+				RETURN
+			END IF
+			
+			CREATE a group of VertexFormats calls accumulation
+			
+			LOOP through the number of beams in the parent beams member
+			
+				CREATE a group of VertexFormats called points
+			
+				LOOP the number of links in the parent link member
+					ADD a VertexFormat to points
+					CREATE a float called y
+					SET the value to a random number MODULUS 2000 DIVIDED by 1000
+					MULTIPLY y by the parent amplitude member
+					SET y to the value
+					SET the current VertexFormat and set the y  of the positionA member to y
+				END LOOP
+				
+				CREATE a float called lineLength
+				SET the value to 1 DIVIDED by the parents links member MULTIPLIED by the parents length member
+				
+				LOOP through the number of links in the parent member link
+					SET the positionA x
+					member of the VertexFormat at the current index to be lineLength
+				END LOOP
+				
+				LOOP through the number of links in the parent member links MULTIPLIED by the RESIZE_ITERATIONS member
+					CREATE two unsigned ints index1 and index2
+					
+					SET index1 to be a random number MODULUS the number of VertexFormats in points
+					SET index2 to be a random number MODULUS the number of VertexFormats in points
+					CREATE a float called shrink
+					
+					SET shrink to be a random number MODULUS 100 DIVIDED by 1000
+					
+					GET the VertexFormat at index1
+					SUBSTRACT the positionA x member by the x ot the VertexFormat MULITPLIED by shrink
+					GET the VertexFormat at index2
+					ADD the positionA x member by the x of the index1 VertexFormat MULITPLIED by shrink
+				END LOOP
+				
+				SET the first VertexFormat in points and set the x and y of positionA to 0
+				
+				LOOP through the number of points and start at the second one
+					ADD the positionA x of the current VertexFormat in points by the previous ones positionA x
+					SET the color of the current VertexFormat to be the parent color member
+					SET the positionB of the currentVertexFormat to be the previous points positionA
+				END LOOP
+				
+				SET the first VertexFormat in points Color to be the parent color member
+				
+				SET the last positionA x VertexFormat in points to be the parents length member
+				SET the last positionA y VertexFormat in points to be 0
+				
+				ADD the VertexFormats in points to accumulation
+				
+			END LOOP
+			
+			CALL SetAttributes on renderer and pass the data in accumulation and the size of accumulation
+		END FUNCTION Evaluate
+		
+	END METHODS
+
+END CLASS ParticleManager

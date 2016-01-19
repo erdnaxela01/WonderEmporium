@@ -1,0 +1,76 @@
+START CLASS Scene
+
+	START MEMBERS
+		name:String
+		entities:Entity
+		manager:SceneManager
+		loaded:Bool
+	END MEMBERS
+	
+	START METHODS
+	
+		/*
+		* arguments: none
+		* return: group of entities
+		* purpose: returns all the entities associated with a scene
+		*/
+		START FUNCTION GetEntities
+		
+		END FUNCTION GetEntities
+		
+		
+		/*
+		* arguments: entity:Entity
+		* return: none
+		* purpose: adds an entity to the entity pool
+		*/
+		START FUNCTION AddEntity
+		
+		END FUNCTION AddEntity
+		
+		/*
+		* arguments: name:String
+		* return: none
+		* purpose: sets the name of the scene
+		*/
+		START FUNCTION Scene
+			SET the name member to name
+		END FUNCTION Scene
+		
+		/*
+		* arguments: none
+		* return: String
+		* purpose: returns the name of the scene
+		*/
+		START FUNCTION Name
+			RETURN the name member
+		END FUNCTION Name
+		
+		/*
+		* arguments: none
+		* return: none
+		* purpose: loads the content of the scene, must be overriden
+		*/
+		START FUNCTION LoadContent
+		
+		END FUNCTION LoadContent
+		
+		/*
+		* arguments: name:String, result:Entity
+		* return: Bool
+		* purpose: the fastest search in the engine, this will find an entity with the specified name in O(n) time
+		*/
+		START FUNCTION Find
+			LOOP through all the entities
+				CALL Name on the current entity
+				IF the return of Name matches name
+					SET result to the entity
+					RETURN true
+				END IF
+			END LOOP
+			RETURN false
+		END FUNCTION Find
+	
+	END METHODS
+
+END CLASS Scene

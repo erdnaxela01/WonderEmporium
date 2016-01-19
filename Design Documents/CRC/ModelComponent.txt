@@ -1,0 +1,11 @@
+CLASS
+ModelComponent
+
+RESPONSABILITIES
+Renders a model using a shader
+
+COLLABORATORS
+RenderState
+Model
+ShaderProgram
+RenderComponent

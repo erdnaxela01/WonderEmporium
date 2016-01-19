@@ -1,0 +1,14 @@
+#version 330
+
+in vec2 i_Position;
+
+out vec2 TexCoord;
+
+void main()
+{
+	//set the tex coord
+	TexCoord = (i_Position * 0.5) + 0.5;
+
+	gl_Position = vec4(i_Position, 0, 1);
+
+}

@@ -1,0 +1,66 @@
+START CLASS PhysicsSystem INHERITS from System and SceneObserver
+
+	START MEMBERS
+		components:group of PhysicsComponent
+		gravity:vec2
+		config:btDefaultCollisionConfiguration
+		dispatch:btBroadPhaseInterface
+		solver:btSequentialConstraintSolver
+		world:btDiscreteDynamicsWorld
+		timer:Timer
+	END MEMBERS
+	
+	START METHODS
+	
+	
+		/*
+		*Arguments:	none
+		*Return: none
+		*Purpose: steps the physics every loop
+		*/
+		START FUNCTION StepPhysics
+			CALL PassedInterval on the timer member
+			IF it returned true
+				CALL GetInterval on the timer member
+				CALL stepSimulation on the world member and pass the return of GetInterval
+			END IF
+		END FUNCTION StepPhysics
+		
+				
+		/*
+		* Arguments: scene:Scene
+		* Return: none
+		* Purpose: tells the system of a new scene on the stack
+		*/
+		START OVERRIDEN FUNCTION NotifyActiveScene
+			CALL GetEntities and store the entities
+			
+			LOOP through all the components in components
+				CALL RemoveFromWorld on the current component
+				CALL PopBack on the components member
+			END LOOP
+			
+			LOOP through all the entities
+				CALL HasType on the current entity and pass PhysicsComponent
+				IF HasType returned true
+					CALL GetComponent on the current entity and pass Physics component
+					CALL AddToWorld and pass the world
+					ADD the return to the components member
+				END IF
+			
+			END LOOP
+		END OVERRIDEN FUNCTION NotifyActiveScene
+
+		
+		/*
+		*Arguments:	none
+		*Return: group of callbacks
+		*Purpose: returns the callbacks to call in the loop
+		*/
+		START FUNCTION GetCallbacks
+			RETURN a system callback and pass StepPhysics function
+		END FUNCTION GetCallbacks
+	
+	END METHODS
+
+END CLASS PhysicsSystem

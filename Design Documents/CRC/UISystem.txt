@@ -1,0 +1,10 @@
+CLASS
+UISystem
+
+RESPONSABILITIES
+Draws all UIComponents
+Displays the Window
+
+COLLABORATORS
+Window
+UIComponents

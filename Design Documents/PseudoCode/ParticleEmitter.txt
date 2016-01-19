@@ -1,0 +1,133 @@
+START CLASS ParticleEmitter INHERITS from RenderComponent
+
+	START MEMBERS
+		beams:unsigned int
+		links:unsigned int
+		length:float
+		amplitude:float
+		width:float
+		manager:ParticleManager
+		particleRenderer:ParticleRenderer
+		shader:ShaderProgram
+		timer:Timer
+		color:vec4
+		SHADERS:String
+		INITIAL_FREQUENCYL:double
+		RESIZE_ITERATIONS:unsigned int
+	END MEMBERS
+	
+	START METHODS
+		/*
+		* arguments:state:RenderState
+		* return: none
+		* purpose: renders the particle renderer
+		*/
+		START OVERRIDEN FUNCTION Render
+			CALL glDisable and pass GL_DEPTH_TEST
+			CALL SetState and pass state
+			SET the scale uniform
+			CALL RegisterShader on the state buffer and pass the shader program
+			CALL SetValues on the state buffer
+			CALL Render on the particleRenderer member and pass the shader member
+			CALL glEnable and pass GL_DEPTH_TEST
+		END OVERRIDEN FUNCTION Render
+		
+		/*
+		* arguments: state:RenderState
+		* return: none
+		* purpose: sets the state of the shader for rendering
+		*/
+		START OVERRIDEN FUNCTION SetState
+			CALL UseProgram on the shader member
+			CALL SetUniform on state buffer and pass the top matrix in the state stack
+		END OVERRIDEN FUNCTION SetState
+		
+		/*
+		* arguments: frequency:double
+		* return: none
+		* purpose: sets the frequency of the beam
+		*/
+		START FUNCTION SetFrequency
+			CALL SetInterval on the timer and pass frequency
+		END FUNCTION SetFrequency
+		
+		/*
+		* arguments: none
+		* return: double
+		* purpose: returns the frequency of the lighting
+		*/
+		START FUNCTION GetFrequency
+			CALL GetInterval on the timer
+			RETURN the value
+		END FUNCTION GetFrequency
+		
+		/*
+		* arguments: number:unsigned int
+		* return: none
+		* purpose: sets the number of beams that the lighting has
+		*/
+		START FUNCTION SetNumberOfBeams
+			SET beams to number
+		END FUNCTION SetNumberOfBeams
+		
+		/*
+		* arguments: number:unsigned int
+		* return: none
+		* purpose: sets the number of links in the beam
+		*/
+		START FUNCTION SetLinksPerBeam
+			SET links to number
+		END FUNCTION SetLinksPerBeam
+		
+		/*
+		* arguments: length:float
+		* return: none
+		* purpose: sets the length of the beam
+		*/
+		START FUNCTION SetLength
+			SET the length member to length
+		END FUNCTION SetLength
+		
+		/*
+		* arguments: amplitude:float
+		* return: none
+		* purpose: sets the amplitude of the beam
+		*/
+		START FUNCTION SetAmplitude
+			SET the amplitude member to amplitude
+		END FUNCTION SetAmplitude
+		
+		/*
+		* arguments: color:vec4
+		* return: none
+		* purpose:  sets the color of the beam
+		*/
+		START FUNCTION SetColor
+			SET the color member to color
+		END FUNCTION SetColor
+		
+		/*
+		* arguments: width:float
+		* return: none
+		* purpose: sets the width of each beam
+		*/
+		START FUNCTION SetWidth
+			SET the width member to width
+		END FUNCTION SetWidth
+		
+		/*
+		* arguments: none
+		* return: none
+		* purpose: sets up all the values for the particle renderer
+		*/
+		START FUNCTION ParticleEmitter
+			CREATE a square of points
+			CREATE a ParticleRenderer
+			SET the create renderer to be the particle renderer member
+			CALL SetInterval and pass INITIAL_FREQUENCY
+			SEED the random
+			SET color to be white
+		END FUNCTION ParticleEmitter
+	END METHODS
+
+END CLASS ParticleEmitter

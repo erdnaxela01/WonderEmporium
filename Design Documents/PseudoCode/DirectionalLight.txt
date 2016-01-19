@@ -1,0 +1,57 @@
+START CLASS DirectionalLight INHERITS from LightComponent
+
+	START MEMBERS
+		direction:vec3
+	END MEMBERS
+	
+	START METHODS
+		/*
+		* arguments: none
+		* return: none
+		* purpose: sets the shader and the entity
+		*/
+		START FUNCTION DirectionalLight
+			SET the shader to a directional light shader
+		END FUNCTION DirectionalLight
+		
+		
+		/*
+		* arguments: direction:vec3
+		* return: none
+		* purpose: set the direction of the light
+		*/
+		START FUNCTION SetDirection
+			set the direction member to direction
+		END FUNCTION SetDirection
+		
+		
+		/*
+		* arguments: none
+		* return: vec3
+		* purpose: return the direction of the light
+		*/
+		START FUNCTION GetDirection
+			RETURN the direction member
+		END FUNCTION GetDirection
+		
+		/*
+		* arguments: type:ComponentType
+		* return: none
+		* purpose: tells if the type is a DirectionalLight component
+		*/
+		START OVERRIDEN FUNCTION Match
+			RETURN true if type is EQUAL to DirectionalLight
+		END OVERRIDEN FUNCTION Match
+		
+		/*
+		* arguments: defered renderer
+		* return: none
+		* purpose: renders the light
+		*/
+		START OVERRIDEN FUNCTION Render
+			SET the direction as the uniform
+			CALL RenderLight and pass the shader member
+		END OVERRIDEN FUNCTION Render
+	END METHODS
+
+END CLASS DirectionalLight

@@ -1,0 +1,70 @@
+START CLASS Core
+
+	START MEMBERS
+		system:System
+		loopCallbacks:Callback
+		entities:Entity
+		exiting:Bool
+	END MEMBERS
+	
+	START METHODS
+	
+		/*
+		* Arguments: none
+		* Return: Bool
+		* Purpose: Tells if the core is exiting
+		*/
+		BEGIN FUNCTION Exiting
+			RETURN the exiting member
+		END FUNCTION Exiting
+		
+		/*
+		* Arguments: system:System
+		* Return: none
+		* Purpose: add a system to the core
+		*/
+		START FUNCTION AddSystem
+			CALL GetCallbacks on the system
+			ADD the returned callbacks to the loopCallbacks member]
+			ADD the system to the systems member
+		END FUNCTION AddSystem
+		
+		/*
+		* Arguments: system:SystemType
+		* Return: system:System
+		* Purpose: gives a specific system based on system type
+		*/
+		START FUNCTION GetSystem
+			LOOP through all the systems
+				CALL Match on the current system
+				IF Match returned TRUE
+					RETURN the current system
+				END IF
+			END LOOP
+			RETURN nothing
+		END FUNCTION GetSystem
+		
+		/*
+		* Arguments: exit:Bool
+		* Return: none
+		* Purpose: sets whether the engine should exit
+		*/
+		START FUNCTION SetExit
+			SET the exiting member to exit
+		END FUNCTION SetExit
+		
+		/*
+		* Arguments: none
+		* Return: none
+		* Purpose: Is called every iteration
+		*/
+		START FUNCTION Loop
+			LOOP through all the callbacks in the loopCallbacks member
+				CALL the current callback
+			END LOOP
+		END FUNCTION Loop
+	
+	
+	END METHODS
+
+END CLASS Core

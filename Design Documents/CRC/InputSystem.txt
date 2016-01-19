@@ -1,0 +1,12 @@
+CLASS
+InputSystem
+
+RESPONSABILITIES
+Converts input
+Sends Converted input to InputHandlers
+Receives Low level hardware input
+
+COLLABORATORS
+InputHandlers
+LLInputMap
+System

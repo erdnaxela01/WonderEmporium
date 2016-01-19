@@ -1,0 +1,72 @@
+START CLASS ParentNode INHERITS from Node
+
+	START MEMBER
+		children:Group of Nodes
+	END MEMBER
+	
+	START METHODS
+		/*
+		*Arguments:	state:RenderState
+		*Return: none
+		*Purpose: renders all the children node and the parent node
+		*/
+		START OVERRIDEN FUNCTION Render
+		
+		END OVERRIDEN FUNCTION Render
+		
+		/*
+		*Arguments:	entity:Entity
+		*Return: none
+		*Purpose: Adds an entity with a node component to the parent
+		*/
+		START FUNCTION AddChild
+		
+		END FUNCTION AddChild
+		
+		/*
+		*Arguments:	type:componentType
+		*Return: Bool
+		*Purpose: returns true if type is equal to ParentNode
+		*/
+		START OVERRIDEN FUNCTION Match
+			RETURN true if type is EQUAL to ParentNode
+		END OVERRIDEN FUNCTION Match
+		
+		/*
+		*Arguments:	node:Node
+		*Return: none
+		*Purpose: removes the specific node
+		*/
+		START FUNCTION RemoveChild
+			LOOP through all the nodes in the children member
+				IF the current child matches node
+					REMOVE the child
+				END IF
+			END LOOP
+		END FUNCTION RemoveChild
+		
+		/*
+		* arguments: name:String, result:Entity
+		* return: bool
+		* purpose: finds the entity with that name
+		*/
+		START OVERRIDEN FUNCTION Find
+			CALL Name on owner
+			IF return of Name returned true
+				SET result to owner
+				RETURN true
+			END IF
+			
+			LOOP through all the Nodes in the children group
+				CALL Find on the current Node pass name and result
+				IF Find returned true
+					RETURN true
+				END IF
+			END LOOP
+			
+			RETURN false
+		END OVERRIDEN FUNCTION Find
+		
+	END METHODS
+
+END CLASS ParentNode

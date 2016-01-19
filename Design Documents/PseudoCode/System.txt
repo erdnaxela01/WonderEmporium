@@ -1,0 +1,27 @@
+START INTERFACE System
+
+	START METHODS
+		
+
+		/*
+		* Arguments: none
+		* Return: callbacks:Group of Callbacks
+		* Purpose: Needs to be overriden, returns the callbacks of the system
+		*/
+		START FUNCTION GetCallbacks
+		
+		END FUNCTION GetCallbacks
+		
+		/*
+		* Arguments: type:SystemType
+		* Return: Bool
+		* Purpose: Needs to be overriden, checks if the system type matches
+		*/
+		START FUNCTION Match
+			
+		END FUNCTION Match
+		
+	
+	END METHODS
+
+END INTERFACE System

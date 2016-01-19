@@ -1,0 +1,56 @@
+START CLASS Node INHERITS from Component
+
+	START MEMBERS
+		myRender:RenderComponent
+		myTransform:TransformComponent
+		owner:Entity
+	END MEMBERS
+	
+	START METHODS
+		/*
+		*Arguments:	state:RenderState
+		*Return: none
+		*Purpose: renders the node
+		*/
+		START FUNCTION Render
+		
+		END FUNCTION Render
+		
+		/*
+		*Arguments:	entity:Entity
+		*Return: none
+		*Purpose: Adds the parent of the component to the node
+		*/
+		START FUNCTION Node
+			CALL GetComponent on entity and pass RenderComponent
+			SET the returned value to the myRender member
+			
+			CALL GetComponent on entity and pass TransformComponent
+			SET the returned value to the myTransform member
+		END FUNCTION Node
+		
+		/*
+		*Arguments:	type:componentType
+		*Return: none
+		*Purpose: returns true if the type passed is Node
+		*/
+		START OVERRIDEN FUNCTION Match
+			RETURN true if type is EQUAL to Node
+		END OVERRIDEN FUNCTION Match
+		
+		/*
+		* arguments: name:String, result:Entity
+		* return: bool
+		* purpose: finds the entity with that name
+		*/
+		START FUNCTION Find
+			CALL Name on owner
+			IF return of Name returned true
+				SET result to owner
+				RETURN true
+			END IF
+			RETURN false
+		END FUNCTION Find
+	END METHODS
+
+END CLASS Node

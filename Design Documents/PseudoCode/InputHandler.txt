@@ -1,0 +1,48 @@
+START CLASS InputHandler INHERITS from Component
+
+	START MEMBERS
+		map:HLInputMap
+	END MEMBERS
+
+	START METHODS
+	
+		/*
+		*Arguments:	input:Input
+		*Return: none
+		*Purpose: converts the input received
+		*/
+		START FUNCTION ReceiveInput
+			CALL Convert on the map member and pass the name of the input
+			SET the name of the input to be the returned value
+			CALL HandleInput on this and pass input
+		END FUNCTION ReceiveInput
+		
+		/*
+		*Arguments:	input:Input
+		*Return: none
+		*Purpose: Handle the input, needs to be overriden
+		*/
+		START FUNCTION HandleInput
+		
+		END FUNCTION HandleInput
+		
+		/*
+		*Arguments:	path:String
+		*Return: none
+		*Purpose: loads the input map
+		*/
+		START FUNCTION InputHandler
+			CALL LoadMap on the map member
+		END FUNCTION InputHandler
+		
+		/*
+		*Arguments:	type:ComponentType
+		*Return: Bool
+		*Purpose: returns true if the type is InputHandler
+		*/
+		START OVERRIDEN FUNCTION Match
+			RETURN true if type is EQUAL to InputHandler
+		END OVERRIDEN FUNCTION Match
+	
+	END METHODS
+END CLASS InputHandler

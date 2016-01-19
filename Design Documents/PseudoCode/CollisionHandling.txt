@@ -1,0 +1,87 @@
+START CLASS CollisionHandling INHERITS from System and SceneObserver
+
+	START MEMBERS
+		physicalComponents:group of PhysicsComponent
+		handlers:group of Entity, CollisionHandler pair
+	END MEMBERS
+	
+	START METHODS
+	
+		/*
+		* arguments: obj1:address, obj2:address
+		* return: none
+		* purpose: calls the appropriate collision handlers and tells them about the collision
+		*/
+		START FUNCTION HandleCollision
+			CREATE an Entity, CollisionHandler pair called Collide1
+			CREATE an Entity,CollisionHandler pair called Collide2
+		
+			LOOP through all the PhysicsComponents in physicalComponents
+				CALL GetBody on the current PhysicsComponent
+				IF the address of the return matches obj1
+					SET Collide1 to be the Entity, Collision Handler pair in the handlers at the current position
+				END IF
+				
+				IF the address of the return matches obj2
+					SET Collide2 to be the Entity, Collision Handler pair in the handlers at the current position
+				END IF
+			END LOOP
+			
+			CALL HandleCollision on the Collision Handler in Collide1 and pass the entity in Collide1 and the entity in Collide2
+			CALL HandleCollision on the Collision Handler in Collide2 and pass the entity in Collide2 and the entity in Collide1
+		END FUNCTION HandleCollision
+		
+		/*
+		* arguments: manifold:btManifoldPoint, obj1:address, obj2:address
+		* return: bool
+		* purpose: will call handle collision on the system
+		*/
+		START FUNCTION Collide
+			CALL HandleCollision and pass obj1 and obj2
+			RETURN true
+		END FUNCTION Collide
+		
+		/*
+		* arguments: none
+		* return: group of Callbacks
+		* purpose: returns the callbacks to be executed every loop
+		*/
+		START OVERRIDEN FUNCTION GetCallbacks
+			RETURN nothing
+		END OVERRIDEN FUNCTION GetCallbacks
+		
+		/*
+		* arguments: scene:Scene
+		* return: none
+		* purpose: notifies the system of a new active scene
+		*/
+		START OVERRIDEN FUNCTION NotifyActiveScene
+			LOOP through all the Entity, CollisionHandler pair in the handlers member
+				CALL PopBack on the handlers member
+			END LOOP
+			
+			LOOP through all the PhysicsComponent in the physicalComponents member
+				CALL PopBack on the physicalComponents member
+			END LOOP
+			
+			CALL GetEntities on scene and store the results
+			
+			LOOP through all the entities
+				CALL HasType on the entity and pass CollisionHandler
+				IF HasType returned true
+					CALL HasType on the current entity and pass PhysicsComponent
+					IF HasType returned true
+						CALL GetComponent on the current entity and pass CollisionHandler
+						ADD the return and the current entity to the handlers member
+						CALL GetComponent on the current entity and pass PhysicsComponent
+						ADD the return to the physicalComponents member
+					END IF
+					
+				END IF
+				
+			END LOOP
+		END OVERRIDEN FUNCTION NotifyActiveScene
+	
+	END METHODS
+
+END CLASS CollisionHandling

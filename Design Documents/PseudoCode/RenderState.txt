@@ -1,0 +1,8 @@
+START CLASS RenderState
+
+	START MEMBERS
+		matrix:MatrixStack - Holds a stack of matrices
+		shader:ShaderProgram
+	END MEMBERS
+
+END CLASS RenderState

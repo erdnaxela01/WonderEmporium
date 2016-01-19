@@ -1,0 +1,133 @@
+START CLASS SceneManagerSystem
+
+	START MEMBERS
+		activeScene:stack of Scenes
+		scenes:group of Scene
+		observers:group of SceneObserver
+	END MEMBERS
+
+	START METHODS
+		/*
+		*arguments: name:String
+		*return: none
+		*purpose: pushed a scene as the active scene
+		*/
+		START FUNCTION PushScene
+			FIND the scene with a matching name
+			PUSH the scene to the top of the stack
+			CALL LoadContent on the top scene
+			CALL NotifyObservers
+		END FUNCTION PushScene
+		
+		/*
+		*arguments: none
+		*return: Scene
+		*purpose: returns the active scene
+		*/
+		START FUNCTION GetActiveScene
+			RETURN the scene on top of the activeScene member
+		END FUNCTION GetActiveScene
+		
+		/*
+		*arguments: name:String
+		*return: Scene
+		*purpose: returns a scene with a specific name
+		*/
+		START FUNCTION GetScene
+			LOOP through all the scenes in the scenes member
+				CALL Name on the current scene
+				IF name matches the return type
+					RETURN the current Scene
+				END IF
+			END LOOP
+			RETURN nothing
+		END FUNCTION GetScene
+		
+		/*
+		*arguments:none
+		*return: none
+		*purpose: tells the observers of the scene again
+		*/
+		START FUNCTION RefreshScene
+			CALL NotifyObservers
+		END FUNCTION RefreshScene
+		
+		/*
+		*arguments: observer:SceneObserver
+		*return: none
+		*purpose: adds an observer to the pool of observers
+		*/
+		START FUNCTION AddObserver
+			ADD observer to the observsers member
+		END FUNCTION AddObserver
+		
+		/*
+		*arguments: none
+		*return: none
+		*purpose: removes the active scene
+		*/
+		START FUNCTION PopScene
+			IF the activeScenes member is empty
+				RETURN
+			END IF
+			CALL POP on the activeScenes member
+			CALL LoadContent on the scene on top
+		END FUNCTION PopScene
+		
+		/*
+		*arguments: observer:SceneObserver
+		*return: none
+		*purpose: Removes an observer from the pool
+		*/
+		START FUNCTION RemoveObserver
+			LOOP through all the SceneObservers in the observers member
+				IF the current observer is EQUAL to observer
+					REMOVE the observer from the pool
+				END IF
+			END LOOP
+		END FUNCTION RemoveObserver
+		
+		/*
+		*arguments: scene:Scene
+		*return: none
+		*purpose: adds a scene to the scene pool
+		*/
+		START FUNCTION AddScene
+			ADD scene to the scenes member
+		END FUNCTION AddScene
+		
+		/*
+		*arguments: scene:Scene
+		*return: none
+		*purpose: removes a scene from the scene pool
+		*/
+		START FUNCTION RemoveScene
+			LOOP through all the scenes
+				IF the current scene is EQUAL to scene
+					REMOVE the current scene
+				END IF
+			END LOOP
+		END FUNCTION RemoveScene
+		
+		/*
+		*arguments: none
+		*return: group of Callbacks
+		*purpose: returns a callback to the functions to be called in the main loop
+		*/
+		START OVERRIDEN FUNCTION GetCallbacks
+			RETURN nothing
+		END OVERRIDEN FUNCTION GetCallbacks
+		
+		/*
+		*arguments: none
+		*return: none
+		*purpose: loops through all the observers and calls NotifyActiveScene
+		*/
+		START FUNCTION NotifyObservers
+			LOOP through all the observers in the observers member
+				CALL NotifyActiveScene on the current observer
+			END LOOP
+		END FUNCTION NotifyObservers
+	END METHODS
+
+END CLASS SceneManagerSystem

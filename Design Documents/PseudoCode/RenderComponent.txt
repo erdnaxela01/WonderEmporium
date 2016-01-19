@@ -1,0 +1,34 @@
+START CLASS RenderComponent INHERITS from Component
+
+	START MEMBERS
+	END MEMBERS
+	
+	START METHODS
+		/*
+		*Arguments:	state:RenderState
+		*Return: none
+		*Purpose: must be overriden
+		*/
+		START FUNCTION Render
+		END FUNCTION Render
+		
+		/*
+		*Arguments:	state:RenderState
+		*Return: none
+		*Purpose: must be overriden
+		*/
+		START FUNCTION SetState
+		END FUNCTION SetState
+		
+		
+		/*
+		*Arguments:	type:ComponentType
+		*Return: Bool
+		*Purpose: returns true is the type is equal to RenderComponent
+		*/
+		START OVERRIDEN FUNCTION Match
+			RETURN true if type is EQUAL to RenderComponent
+		END OVERRIDEN FUNCTION Match
+	END METHODS
+
+END CLASS RenderComponent

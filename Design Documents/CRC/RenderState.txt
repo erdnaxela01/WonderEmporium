@@ -1,0 +1,8 @@
+CLASS
+RenderState
+
+RESPONSABILITIES
+Holds values relevant to rendering
+
+COLLABORATORS
+RenderSystem 

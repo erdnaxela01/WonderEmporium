@@ -1,0 +1,11 @@
+CLASS
+SceneManagerSystem
+
+RESPONSABILITIES
+Keep track of the active scene
+Hold all scenes
+Notify all the SceneObservers
+
+COLLABORATORS
+Scene
+SceneObservers

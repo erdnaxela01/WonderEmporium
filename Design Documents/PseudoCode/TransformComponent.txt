@@ -1,0 +1,95 @@
+START CLASS TransformComponent INHERITS from Component
+
+	START MEMBERS
+		position:vec3
+		rotation:vec3
+		scale:vec3
+	END MEMBERS
+	
+	START METHODS
+		/*
+		*Arguments:	none
+		*Return: mat4
+		*Purpose: rreturns the transform matrix
+		*/
+		START FUNCTION GetTransform
+			CALL Transform and pass all members
+			RETURN the returned value
+		END FUNCTION GetTransform
+		
+		/*
+		*Arguments:	none
+		*Return: mat4
+		*Purpose: return the inverse of the transform matrix
+		*/
+		START FUNCTION GetInverse
+			CALL Inverse and pass all members
+			RETURN the returned value
+		END FUNCTION GetInverse
+		
+		/*
+		*Arguments:	type:componentType
+		*Return: Bool
+		*Purpose: returns true if type matches TransformComponent
+		*/
+		START OVERRIDEN FUNCTION Match
+			RETURN true if tyoe is EQUAL to TransformComponent
+		END OVERRIDEN FUNCTION Match
+		
+		
+		/*
+		*Arguments:	pos:vec3
+		*Return: none
+		*Purpose: sets the position
+		*/
+		START FUNCTION SetPosition
+			SET position to pos
+		END FUNCTION SetPosition
+		
+		/*
+		*Arguments:	none
+		*Return: vec3
+		*Purpose: gets the position
+		*/
+		START FUNCTION GetPosition
+			RETURN position
+		END FUNCTION GetPosition
+		
+		/*
+		*Arguments:	rotation:vec3
+		*Return: none
+		*Purpose: sets the rotation
+		*/
+		START FUNCTION SetRotation
+			SET the rotation member to rotation
+		END FUNCTION SetRotation
+		
+		/*
+		*Arguments:	none
+		*Return: vec3
+		*Purpose: gets the rotation
+		*/
+		START FUNCTION GetRotation
+			RETURN rotation
+		END FUNCTION GetRotation
+		
+		/*
+		*Arguments:	scale:vec3
+		*Return: none
+		*Purpose: sets the scale
+		*/
+		START FUNCTION SetScale
+			SET the scale member to scale
+		END FUNCTION SetScale
+		
+		/*
+		*Arguments:	none
+		*Return: vec3
+		*Purpose: gets the scale
+		*/
+		START FUNCTION GetScale
+			RETURN scale
+		END FUNCTION GetScale
+	END METHODS
+
+END CLASS TransformComponent

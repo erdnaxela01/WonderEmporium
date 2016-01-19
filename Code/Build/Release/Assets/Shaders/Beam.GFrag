@@ -1,0 +1,24 @@
+#version 330
+
+in vec4 Color;
+in float Intensity;
+
+layout(location = 0) out vec4 DiffuseTex;
+layout(location = 1) out vec4 PositionTex;
+layout(location = 2) out vec4 NormalTex;
+
+void main()
+{
+
+	float alpha = 1.0 - abs((Intensity * 2.0) - 1.0);
+
+	vec4 color = Color;
+	//diffuse color
+	DiffuseTex =vec4(Color.xyz, Color.a * pow(alpha, 2.0));
+
+	//position
+	PositionTex = vec4(0);
+
+	//normal
+	NormalTex = vec4(0);
+}

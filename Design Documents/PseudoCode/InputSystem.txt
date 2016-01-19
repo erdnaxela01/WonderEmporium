@@ -1,0 +1,69 @@
+START CLASS InputSystem INHERITS from System and SceneObserver
+
+	START MEMBERS
+		handlers:Group of InputHandlers
+		map:LLInputMap
+	END MEMBERS
+	
+	START METHODS
+		
+
+		/*
+		* Arguments: scene:Scene
+		* Return: none
+		* Purpose: tells the system of a new scene on the stack
+		*/
+		START OVERRIDEN FUNCTION NotifyActiveScene
+			CALL GetEntities on the scene
+			LOOP through all the handlers in the handlers member
+				CALL PopBack on the handlers member
+			END LOOP
+			
+			LOOP through all the entities
+				CALL HasType on the current entity and pass InputHandler
+				IF HasType returned true
+					CALL GetComponent on the current entity and pass InputHandler
+					ADD the return to the handlers member
+				END IF
+			END LOOP
+		END OVERRIDEN FUNCTION NotifyActiveScene
+		
+		
+		/*
+		*Arguments:	none
+		*Return: Callbacks
+		*Purpose: returns nothing
+		*/
+		START OVERRIDEN FUNCTION GetCallbacks
+		
+		END OVERRIDEN FUNCTION GetCallbacks
+		
+		/*
+		*Arguments:	none
+		*Return: none
+		*Purpose: sets the matrix and renders the model
+		*/
+		START FUNCTION InputSystem
+			CALL LoadMap on the map member
+		END FUNCTION InputSystem
+		
+		/*
+		*Arguments:	platform specific input
+		*Return: none
+		*Purpose: sends input to the input handlers
+		*/
+		START STATIC FUNCTION SendInput
+			CREATE an Input object called input
+			SET the data in input
+			CALL Convert on the map member
+			SET the name of input to be the return 
+			LOOP through all the InputHandlers in the handlers member
+				CALL SendInput on the current handler and pass input
+			END LOOP
+		END STATIC FUNCTION SendInput
+		
+		
+	
+	END METHODS
+
+END CLASS InputSystem

@@ -1,0 +1,35 @@
+START CLASS CameraComponent INHERITS from Component
+
+	START MEMBERS
+		screenPosition:vec2
+		screenSize:vec2
+		worldSize:vec2
+		realScreenSize:vec2
+		depth:vec2
+		fov:Float
+		CAMERA_COMPONENT_DEFAULT_FOV:float
+		CAMERA_COMPONENT_DEFAULT_DETPTH:vec2
+	END MEMBERS
+	
+	START METHODS
+		/*
+		*Arguments:	state:RenderState
+		*Return: none
+		*Purpose: sets the matrices of the camera
+		*/
+		START FUNCTION View
+			SET the viewport to the screenPosition and screenSize members multiplied by the real screen size member
+			CALL Frustum and pass worldSize , depth and fov
+		END FUNCTION View
+		
+		/*
+		*Arguments:	type:componentType
+		*Return: none
+		*Purpose: returns true if type is equal to CameraComponent
+		*/
+		START OVERRIDEN FUNCTION Match
+			RETURN true if type is EQUAL to CameraComponent
+		END OVERRIDEN FUNCTION Match
+	END METHODS
+
+END CLASS CameraComponent
